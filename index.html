@@ -1,0 +1,498 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0090)file:///C:/Users/naemah/Downloads/farewell/website/Just%20Wanted%20To%20Say%20Goodbye.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>
+	Just Wanted To Say Goodbye
+</title><link rel="stylesheet" type="text/css" media="all" href="./Employee Self-Service (ESSNet)_files/component.css"><link rel="stylesheet" type="text/css" media="all" href="./Employee Self-Service (ESSNet)_files/style.css"><link rel="stylesheet" type="text/css" media="all" href="./Employee Self-Service (ESSNet)_files/alert.css">
+    
+
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/function.js.download"></script>
+
+
+
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/jquery-3.6.0.min.js.download"></script> 
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/jquery-migrate-3.3.2.js.download"></script> 
+     
+    
+    
+     
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/jquery-ui-1.13.2.js.download"></script>
+    
+    
+    <link rel="stylesheet" type="text/css" media="all" href="./Employee Self-Service (ESSNet)_files/jquery-ui-1.13.2-custom-smoothness.css">
+    
+     
+    
+
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/jquery.mb.browser.min.js.download"></script>
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            $('#divPrompt').dialog({
+                resizable: false,
+                draggable: true,
+                width: 600,
+                modal: true,
+                autoOpen: false,
+                show: 'size',
+                hide: 'size',
+                buttons: {
+                    'OK': function () {
+                        $(this).dialog('close');
+                    }
+                }
+            });
+
+            $('img.company-logo').load(function () {
+                adjustContent();
+            });
+
+            var adjustContent = function () {
+                if ($(window).width() >= 945) {
+                    $('div#header').css('position', 'fixed').css('z-index', '9').css('top', '0px');
+
+                    $('div#content.main').css('margin-top', $('div#header').height() + 'px');
+
+                    $('#divPrompt, #divTimeout').dialog('option', 'width', '600px');
+
+                    $('.ui-dialog .ui-widget-header').css('font-size', '22px');
+
+                    var sWidthValue = $('#divPopUp').dialog('option', 'width');
+
+                    if (String(sWidthValue).indexOf('%') != String(sWidthValue).length - 1) {
+                        if ($('#divPopUp').width() > 450)
+                            $('#divPopUp').dialog('option', 'width', '500px');
+                    }
+                }
+                else {
+                    $('div#header').css('position', '').css('z-index', '').css('top', '');
+
+                    $('div#content.main').css('margin-top', '0px');
+
+                    $('#divPrompt, #divTimeout').dialog('option', 'width', ($(window).width() - 80) + 'px');
+
+                    $('.ui-dialog .ui-widget-header').css('font-size', '14px');
+
+                    var sWidthValue = $('#divPopUp').dialog('option', 'width');
+
+                    if (String(sWidthValue).indexOf('%') != String(sWidthValue).length - 1)
+                        $('#divPopUp').dialog('option', 'width', ($(window).width() - 40) + 'px');
+                }
+
+                $('div.header-icon-container').height($('div.company-logo-tile').height());
+
+                var iBottom = $('img.company-logo').position().top + $('img.company-logo').height() + 5;
+
+                $('div.sys-menu').css('top', iBottom + 'px');
+                
+                $('div.dash-board').css('top', iBottom + 'px');
+
+                $('div.gear-menu').css('top', iBottom + 'px');
+
+                $('#divPrompt, #divTimeout, #divPopUp').dialog('option', 'position', { my: "center", at: "center", of: window });
+            };
+
+            $(window).resize(function () {
+                adjustContent();
+            });
+
+            $(document).ready(function () {
+                adjustContent();
+
+                adjustSubMenu();
+
+                $('.sys-menu').hide();
+
+                //toggle system menu link
+                $('.sysmenu').click(function (event) {
+                    $('.sys-menu').slideToggle(200);
+
+                    //adjustSubMenu();
+
+                    hideDashBoard();
+
+                    hideGearMenu();
+
+                    event.stopPropagation();
+                });
+
+                //toggle favourite (bookmark) link
+                $('.dashboard').click(function (event) {
+                    $('.dash-board').slideToggle(200);
+
+                    hideSysMenu();
+
+                    hideGearMenu();
+
+                    event.stopPropagation();
+                });
+
+                //toggle profile menu
+                $('.gearmenu').click(function (event) {
+                    $('.gear-menu').toggle(200);
+
+                    hideSysMenu();
+
+                    hideDashBoard();
+
+                    event.stopPropagation();
+                });
+
+                //search menu watermark
+                try {
+                    $('#txtSearchMenu').watermark('Search Menu');
+                }
+                catch (e) {
+                }
+
+                $('span.mandatory').text('*');
+            });
+
+            $('.deleteFav').click(function (event) {
+                event.stopPropagation();
+            });
+
+            $(document).click(function (event) {
+                hideSysMenu();
+
+                hideDashBoard();
+
+                hideGearMenu();
+            });
+        });
+
+        function hideSysMenu() {
+            if ($('.sys-menu').is(':visible')) {
+                $('.sys-menu').slideToggle(200);
+            }
+        }
+
+        function hideDashBoard() {
+            if ($('.dash-board').is(':visible')) {
+                $('.dash-board').slideToggle(200);
+            }
+        }
+
+        function hideGearMenu() {
+            if ($('.gear-menu').is(':visible')) {
+                $('.gear-menu').toggle(200);
+            }
+        }
+
+        function processLogout() {
+            __doPostBack('ctl00$lbLogout','');
+        }
+
+        var mlpmObject = null;
+
+        function adjustSubMenu() {
+            var menuHeight = 0;
+            var colID = 0;
+
+            $('div.sys-menu').append('<div class="col left quart"></div>');
+
+            $('div.sys-menu div.sub-menu').each(function () {
+                if (menuHeight > 100 && colID < 3) {
+                    menuHeight = 0;
+
+                    menuHeight += $(this).outerHeight(true);
+
+                    $('div.sys-menu').append('<div class="col left"></div>');
+
+                    colID++;
+                }
+                else {
+                    menuHeight += $(this).outerHeight(true);
+                }
+
+                $('div.sys-menu .col').eq(colID).append($(this));
+            });
+        }
+    </script>
+
+    
+    <script language="javascript" type="text/javascript" src="./Employee Self-Service (ESSNet)_files/jquery.watermark.min.js.download" )"=""></script>
+
+    <script language="javascript" type="text/javascript">
+        $.ajax({
+            url: 'verify_access.ashx',
+            type: 'POST',
+            async: false
+        }).done(function (data) {
+            if (data == 'true')
+                    window.location.href = 'https://www.youtube.com/watch?v=0eEkWvekQiE.aspx';
+        });
+
+        function OnSubmit() {
+            var bValid = Page_ClientValidate('vgLogin');
+
+            disableButtons(bValid);
+            if (bValid)
+                __doPostBack('ctl00$cntPlcHldrContent$btnSignIn','');
+
+            return bValid;
+        }
+
+        function OnCloseDialog() {
+            
+        }
+
+        $(document).ready(function () {
+            $('#cntPlcHldrContent_txtUsrID').watermark('User ID');
+
+            $('#cntPlcHldrContent_txtUsrPwd').watermark('Password');
+        });
+    </script>
+<link href="./Employee Self-Service (ESSNet)_files/WebResource.axd" type="text/css" rel="stylesheet"></head>
+
+
+<body>
+    <form method="post" action="https://www.youtube.com/watch?v=0eEkWvekQiE" onsubmit="javascript:return WebForm_OnSubmit();" id="frmAsp" onkeypress="javascript:return WebForm_FireDefaultButton(event, &#39;cntPlcHldrContent_btnSignIn&#39;)">
+<div class="aspNetHidden">
+<input type="hidden" name="__LASTFOCUS" id="__LASTFOCUS" value="">
+<input type="hidden" name="__EVENTTARGET" id="__EVENTTARGET" value="">
+<input type="hidden" name="__EVENTARGUMENT" id="__EVENTARGUMENT" value="">
+<input type="hidden" name="_TSM_HiddenField_" id="_TSM_HiddenField_" value="fnKShE0kjibmzODS3xrKOHeea2HtKPw8vGQhVzBmq4A1">
+<input type="hidden" name="__VIEWSTATE" id="__VIEWSTATE" value="/wEPDwUKMTg2OTc4MTY1MA8UKwACFgQeCExEQVBBdXRoBQVGQUxTRR4KVG90YWxIaW50cwUBMmcWAmYPZBYEZg9kFgQCDA8VBBQvc2NyaXB0cy9mdW5jdGlvbi5qcxwvc2NyaXB0cy9qcXVlcnktMy42LjAubWluLmpzIC9zY3JpcHRzL2pxdWVyeS1taWdyYXRlLTMuMy4yLmpzHC9zY3JpcHRzL2pxdWVyeS11aS0xLjEzLjIuanNkAg4PFQQhL3NjcmlwdHMvanF1ZXJ5Lm1iLmJyb3dzZXIubWluLmpzAk9LC1NlYXJjaCBNZW51IV9fZG9Qb3N0QmFjaygnY3RsMDAkbGJMb2dvdXQnLCcnKWQCAQ8WAh4Kb25rZXlwcmVzcwVRamF2YXNjcmlwdDpyZXR1cm4gV2ViRm9ybV9GaXJlRGVmYXVsdEJ1dHRvbihldmVudCwgJ2NudFBsY0hsZHJDb250ZW50X2J0blNpZ25JbicpFgICAg9kFgpmDw9kFgIeDGF1dG9jb21wbGV0ZQUDb2ZmZAIBDw8WAh4MRXJyb3JNZXNzYWdlBTM8c3BhbiBzdHlsZT0nY29sb3I6ICMwMDAwMDAnPlJlcXVpcmVkIGZpZWxkLjwvc3Bhbj5kZAIDDw9kFgIfAwUDb2ZmZAIEDw8WAh8EBTM8c3BhbiBzdHlsZT0nY29sb3I6ICMwMDAwMDAnPlJlcXVpcmVkIGZpZWxkLjwvc3Bhbj5kZAIGDxBkDxYFZgIBAgICAwIEFgUQBQdFbmdsaXNoZWcQBQVNYWxheQUFbXktTVlnEAUJ4LmE4LiX4LiiBQV0aC1USGcQBQ7kuK3mloco57mB5L2TKQUFemgtVFdnEAUO5Lit5paHKOeugOS9kykFBXpoLVNHZ2RkZBInLGcol/5hbQbHP9XecQfjL1pNSp8BedHC6iX+10dw">
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+var theForm = document.forms['frmAsp'];
+if (!theForm) {
+    theForm = document.frmAsp;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+</script>
+
+
+<script src="./Employee Self-Service (ESSNet)_files/WebResource(1).axd" type="text/javascript"></script>
+
+
+<script src="./Employee Self-Service (ESSNet)_files/ScriptResource.axd" type="text/javascript"></script>
+<script src="./Employee Self-Service (ESSNet)_files/ScriptResource(1).axd" type="text/javascript"></script>
+<script src="./Employee Self-Service (ESSNet)_files/ScriptResource(2).axd" type="text/javascript"></script>
+<script src="./Employee Self-Service (ESSNet)_files/CombineScriptsHandler.axd" type="text/javascript"></script>
+<script src="./Employee Self-Service (ESSNet)_files/WebResource(2).axd" type="text/javascript"></script>
+<script type="text/javascript">
+//<![CDATA[
+function WebForm_OnSubmit() {
+if (typeof(ValidatorOnSubmit) == "function" && ValidatorOnSubmit() == false) return false;
+return true;
+}
+//]]>
+</script>
+
+<div class="aspNetHidden">
+
+	<input type="hidden" name="__VIEWSTATEGENERATOR" id="__VIEWSTATEGENERATOR" value="CA0B0334">
+</div>
+        <script type="text/javascript">
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$toolScpMngrContent', 'frmAsp', [], [], [], 90, 'ctl00');
+//]]>
+</script>
+
+
+        <div id="header" style="position: fixed; z-index: 9; top: 0px;">
+            <div class="basic-container">
+                <div class="left leftLogo">
+                    <span class="left tiles company-logo-tile">
+                        <img src="./Employee Self-Service (ESSNet)_files/companylogo.png" class="company-logo">
+                    </span>
+                </div>    
+
+                <div class="sys-menu" style="top: 84px; display: none;">
+
+                <div class="col left quart"></div><div class="col left quart"></div></div>                
+
+                <div class="dash-board" style="top: 84px;">
+                    <div class="Listfavourites">
+                        <ul id="ulFav">
+
+                        </ul>
+
+
+                        <div id="divBookmarkMsg" class="clsBookmark" style="display: inline">
+                            <span>
+                                No link(s) have been added.
+                            </span>
+                        </div>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+
+        <div id="content" class="main" style="margin-top: 99px;">
+            <div class="clearfix"></div>
+
+            
+    <div id="content">
+	    <div class="basic-container margin-base" style="margin:auto; margin-top:3%; margin-bottom:3%; height:94%;">
+    	    <div class="left tri" style="display: table;">
+        	    <span class="left login-learn">
+            	    <img src="./Employee Self-Service (ESSNet)_files/frontimage.jpg" width="100%">
+                    <div id="home-tagline-background">
+                        <span id="home-tageline-primary">Hope to see you again soon!</span>
+                        <span id="home-tageline-secondary"> thank you </span>
+                        <div class="clearspace"></div>
+                    </div>
+                </span>
+                <span class="clearspace"></span>
+            </div>
+            
+            <div class="left" style="padding-left:5%; padding-right:0%;">
+                <div class="textalign-left logohcmspad" style="padding-left:0px; ">
+                    <img src="./Employee Self-Service (ESSNet)_files/logohcms.png" width="100%">
+                </div>
+
+                <div class="textalign-left" style="padding-top:40px;">
+                    <span class="textalign-left">
+                        <input name="ctl00$cntPlcHldrContent$txtUsrID" type="text" maxlength="40" id="cntPlcHldrContent_txtUsrID" class="frmOriText slideform" autocomplete="off" placeholder="User ID">
+
+                        <span id="cntPlcHldrContent_rfvUsrID" style="display:none;"></span>
+
+                        <input type="hidden" name="ctl00$cntPlcHldrContent$rfvUsrIDEx_ClientState" id="cntPlcHldrContent_rfvUsrIDEx_ClientState">
+                    </span>
+                    <div class="clearspace"></div>
+                    <span class="textalign-left break-top">
+                        <input name="ctl00$cntPlcHldrContent$txtUsrPwd" type="password" id="cntPlcHldrContent_txtUsrPwd" class="frmOriText slideform" autocomplete="off" placeholder="Password">
+
+                        <span id="cntPlcHldrContent_rfvUsrPwd" style="display:none;"></span>
+
+                        <input type="hidden" name="ctl00$cntPlcHldrContent$rfvUsrPwdEx_ClientState" id="cntPlcHldrContent_rfvUsrPwdEx_ClientState">
+                    </span>
+                    <div class="clearspace"></div>
+                    <span class="textalign-left break-top">
+                        <select name="ctl00$cntPlcHldrContent$selLanguage" id="cntPlcHldrContent_selLanguage" class="frmOriSelect">
+	<option value="">English</option>
+	<option value="my-MY">Malay</option>
+	<option value="th-TH">ไทย</option>
+	<option value="zh-TW">中文(繁体)</option>
+	<option value="zh-SG">中文(简体)</option>
+
+</select>
+                    </span>
+                    <span class="clearfix"></span>
+                    <div style="margin-top:50px; text-align:right; ">
+                        <input type="submit" name="ctl00$cntPlcHldrContent$btnSignIn" value="Sign In" onclick="javascript:return OnSubmit();WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions(&quot;ctl00$cntPlcHldrContent$btnSignIn&quot;, &quot;&quot;, true, &quot;vgLogin&quot;, &quot;&quot;, false, false))" id="cntPlcHldrContent_btnSignIn">
+
+                        <input type="submit" name="ctl00$cntPlcHldrContent$btnReset" value="Reset" onclick="javascript:return OnResetEdit();" id="cntPlcHldrContent_btnReset">
+                    </div>
+
+                    <span id="cntPlcHldrContent_lblErrMsg" style="color:Red;font-size:8pt;">&nbsp;</span>
+                </div>
+                
+                <div style="margin-top:10%; padding-right:0px;" class="textalign-right">
+                    <div>
+
+                            <a href="https://www.youtube.com/watch?v=0eEkWvekQiE" class="smaller">
+                                Forgot Password?
+                            </a> 
+                        
+                        |
+                        
+
+                        <a href="https://www.youtube.com/watch?v=0eEkWvekQiE" class="smaller" target="_blank">Can't login? I can't Help. Please call MIS</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+
+    <input type="submit" name="ctl00$cntPlcHldrContent$btnCancel" value="" id="cntPlcHldrContent_btnCancel" style="display: none;">
+
+        </div>
+
+        <div id="footer">
+            <div class="basic-container">
+                <div class="left half">
+                    <span class="left" style="padding:20px 0px;">
+                        <img src="./Employee Self-Service (ESSNet)_files/orisoftlogo.png">
+                    </span>
+                </div>
+                <div class="right half zeropadding">
+                    <span id="copyright">Copyright ©2025 Daus <br>All Right Reserved</span>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+
+        
+    
+<script type="text/javascript">
+//<![CDATA[
+var Page_Validators =  new Array(document.getElementById("cntPlcHldrContent_rfvUsrID"), document.getElementById("cntPlcHldrContent_rfvUsrPwd"));
+//]]>
+</script>
+
+<script type="text/javascript">
+//<![CDATA[
+var cntPlcHldrContent_rfvUsrID = document.all ? document.all["cntPlcHldrContent_rfvUsrID"] : document.getElementById("cntPlcHldrContent_rfvUsrID");
+cntPlcHldrContent_rfvUsrID.controltovalidate = "cntPlcHldrContent_txtUsrID";
+cntPlcHldrContent_rfvUsrID.focusOnError = "t";
+cntPlcHldrContent_rfvUsrID.errormessage = "<span style=\'color: #000000\'>Required field.</span>";
+cntPlcHldrContent_rfvUsrID.display = "None";
+cntPlcHldrContent_rfvUsrID.validationGroup = "vgLogin";
+cntPlcHldrContent_rfvUsrID.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+cntPlcHldrContent_rfvUsrID.initialvalue = "";
+var cntPlcHldrContent_rfvUsrPwd = document.all ? document.all["cntPlcHldrContent_rfvUsrPwd"] : document.getElementById("cntPlcHldrContent_rfvUsrPwd");
+cntPlcHldrContent_rfvUsrPwd.controltovalidate = "cntPlcHldrContent_txtUsrPwd";
+cntPlcHldrContent_rfvUsrPwd.focusOnError = "t";
+cntPlcHldrContent_rfvUsrPwd.errormessage = "<span style=\'color: #000000\'>Required field.</span>";
+cntPlcHldrContent_rfvUsrPwd.display = "None";
+cntPlcHldrContent_rfvUsrPwd.validationGroup = "vgLogin";
+cntPlcHldrContent_rfvUsrPwd.evaluationfunction = "RequiredFieldValidatorEvaluateIsValid";
+cntPlcHldrContent_rfvUsrPwd.initialvalue = "";
+//]]>
+</script>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+var Page_ValidationActive = false;
+if (typeof(ValidatorOnLoad) == "function") {
+    ValidatorOnLoad();
+}
+
+function ValidatorOnSubmit() {
+    if (Page_ValidationActive) {
+        return ValidatorCommonOnSubmit();
+    }
+    else {
+        return true;
+    }
+}
+        WebForm_AutoFocus('cntPlcHldrContent_txtUsrID');
+document.getElementById('cntPlcHldrContent_rfvUsrID').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cntPlcHldrContent_rfvUsrID'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ValidatorCalloutBehavior, {"ClientStateFieldID":"cntPlcHldrContent_rfvUsrIDEx_ClientState","closeImageUrl":"/WebResource.axd?d=MrmGBHn-BhppB4c-tF8Y31c5dSpzhxPWrMfXVbuZh03fL6l2snrzVfq_Mh8Mvg0ks45IdhhROWWmawj2zLWrbxfttAVQUx531Y5aogb4SH-455huGS6UVm641CDaGwLM9m7NiYdOl6kJk7mBxWP4lw2\u0026t=635640261520000000","id":"cntPlcHldrContent_rfvUsrIDEx","warningIconImageUrl":"/WebResource.axd?d=gBxvfyQViBTkGnqPZvMNoTodJ4dzZWE-Hnz-jJ0_Bg6lIAhthEn2ShG47Z1IKWTyjuwd3xlQXiHkd25gmee6Y0Shr2FCLZ32__O-09E_7J_2LpNAI2FATLVZg-1laQ_c4lYZ-zF4Um3DpWILqkUUQA2\u0026t=635640261520000000"}, null, null, $get("cntPlcHldrContent_rfvUsrID"));
+});
+
+document.getElementById('cntPlcHldrContent_rfvUsrPwd').dispose = function() {
+    Array.remove(Page_Validators, document.getElementById('cntPlcHldrContent_rfvUsrPwd'));
+}
+Sys.Application.add_init(function() {
+    $create(Sys.Extended.UI.ValidatorCalloutBehavior, {"ClientStateFieldID":"cntPlcHldrContent_rfvUsrPwdEx_ClientState","closeImageUrl":"/WebResource.axd?d=MrmGBHn-BhppB4c-tF8Y31c5dSpzhxPWrMfXVbuZh03fL6l2snrzVfq_Mh8Mvg0ks45IdhhROWWmawj2zLWrbxfttAVQUx531Y5aogb4SH-455huGS6UVm641CDaGwLM9m7NiYdOl6kJk7mBxWP4lw2\u0026t=635640261520000000","id":"cntPlcHldrContent_rfvUsrPwdEx","warningIconImageUrl":"/WebResource.axd?d=gBxvfyQViBTkGnqPZvMNoTodJ4dzZWE-Hnz-jJ0_Bg6lIAhthEn2ShG47Z1IKWTyjuwd3xlQXiHkd25gmee6Y0Shr2FCLZ32__O-09E_7J_2LpNAI2FATLVZg-1laQ_c4lYZ-zF4Um3DpWILqkUUQA2\u0026t=635640261520000000"}, null, null, $get("cntPlcHldrContent_rfvUsrPwd"));
+});
+//]]>
+</script>
+<input type="hidden" name="__ncforminfo" value="GlBIN9wnBzr0ntWqrg7RI7cQYYS1LpFAVYRCg-a4ev4XVP53xY_Kjq-c-2pSXsgWBPj-DBlNnMETGeEe2BPO_tE16XAT8mFLn-jVTdSBRnchVA5xDHYvRqDBvRGSomQPxZxcEVzpx_Rq5i_l_T4D7Zv0QR2JUe6hsoI2GeovH_aru1procyJFfTAmySQ92Fz43KmRjp1ZZLEO8G2LVY9irt9OeJRZRaSFQplOdDmIWfDI-qVePxjbBjo2uibRIBjALnheCK_J9_kJgFna6fd3g=="></form>
+
+
+<div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable" aria-describedby="divPrompt" aria-labelledby="ui-id-1" style="height: auto; width: 600px; top: 217.281px; left: 368.5px; display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle" style="font-size: 22px;"><span id="ui-id-1" class="ui-dialog-title">Employee Self-Service (ESSNet)</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-corner-all ui-widget ui-button-text-only"><span class="ui-button-text">OK</span></button></div></div></div><div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-draggable" aria-describedby="divPrompt" aria-labelledby="ui-id-1" style="height: auto; width: 600px; top: 217.28px; left: 368.5px; display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix ui-draggable-handle" style="font-size: 22px;"><span id="ui-id-1" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close"><span class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span class="ui-button-text">Close</span></button></div><div id="divPrompt" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 67.5px; max-height: none; height: auto;">
+            <p class="spacer error-bang">
+                <span id="spnPromptMsg"></span> 
+            </p>
+        </div><div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix"><div class="ui-dialog-buttonset"><button type="button" class="ui-button ui-corner-all ui-widget ui-button-text-only"><span class="ui-button-text">OK</span></button></div></div></div></body></html>
