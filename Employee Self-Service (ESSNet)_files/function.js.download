@@ -1,0 +1,1129 @@
+﻿function isEmpty(str) {
+    var b = false;
+
+    strTemp = new String(str);
+    if (strTemp == null)
+        b = true;
+    else
+        if (strTemp == 'undefined' || strTemp == 'null' || strTemp.length == 0)
+            b = true;
+
+    return b;
+}
+
+
+
+function OnReset() 
+{
+    var frm = frmAsp;
+
+    for (var i = 0; i < frm.length; i++) {
+        if (frm.elements[i].id.indexOf('txt') != -1) {
+            if (frm.elements[i].className != 'watermark') {
+                frm.elements[i].value = '';
+            }
+        }
+        else if (frm.elements[i].id.toLowerCase().indexOf('sel') != -1) {
+            frm.elements[i].selectedIndex = 0;
+        }
+    }
+
+    try {
+        if (Sys.Extended.UI.ValidatorCalloutBehavior._currentCallout != null)
+            Sys.Extended.UI.ValidatorCalloutBehavior._currentCallout.hide();
+    } catch (e) { }
+
+    OnFocusFirstField();
+
+    return false;
+}
+
+
+
+function OnResetEdit() {
+    document.forms[0].reset();
+
+    try {
+        if (Sys.Extended.UI.ValidatorCalloutBehavior._currentCallout != null)
+            Sys.Extended.UI.ValidatorCalloutBehavior._currentCallout.hide();
+    } catch (e) { }
+
+    OnFocusFirstField();
+
+    return false;
+}
+
+
+
+function OnFocusFirstField() 
+{
+    var frm = frmAsp;
+
+    for (var i = 0; i < frm.length; i++) {
+        if (frm.elements[i].id.indexOf('txt') != -1) {
+            if ((frm.elements[i].className != 'watermark') && (frm.elements[i].type != 'hidden')) {
+                try {
+                    frm.elements[i].focus();
+
+                    try {
+                        if (AjaxControlToolkit.ValidatorCalloutBehavior._currentCallout != null)
+                            AjaxControlToolkit.ValidatorCalloutBehavior._currentCallout.hide();
+                    } catch (e) { }
+                    break;
+                }
+                catch (e) {
+                }
+            }
+        }
+        else if (frm.elements[i].id.toLowerCase().indexOf('sel') != -1) {
+            if (!(isEmpty(frm.elements[i].className))) {
+                frm.elements[i].focus();
+
+                try {
+                    if (AjaxControlToolkit.ValidatorCalloutBehavior._currentCallout != null)
+                        AjaxControlToolkit.ValidatorCalloutBehavior._currentCallout.hide();
+                } catch (e) { }
+                break;
+            }
+        }
+    }
+}
+
+
+    
+function VerifyChecked(cbId)
+{
+    var frm = frmAsp;
+    var bChecked = false;
+    var countChecked = 0;
+
+    for (var i=0; i<frm.length;i++)
+    {               
+        if (frm.elements[i].id.indexOf(cbId) != -1 && frm.elements[i].checked)
+        {
+            bChecked = true;
+            break;
+        }
+    } 
+  
+    return bChecked;
+}
+
+
+
+
+function CountCheckedRows(cbId) {
+    var frm = frmAsp;
+    var countChecked = 0;
+
+    for (var i = 0; i < frm.length; i++) {
+        if (frm.elements[i].id.indexOf(cbId) != -1 && frm.elements[i].checked) {
+            countChecked += 1;
+        }
+    }
+
+    return countChecked;
+}
+
+
+
+function FindControl(ctrlId) {
+    var frm = frmAsp;
+    var objCtrl = null;
+
+    for (var i = 0; i < frm.length; i++) {
+        if (frm.elements[i].id.indexOf(ctrlId) != -1) {
+            objCtrl = frm.elements[i];
+
+            break;
+        }
+    }
+
+    return objCtrl;
+}
+
+
+
+function HaveConsecutiveSimilar(sCompareWith, sValue, iMaxSimilar) {
+    var bFound = false;
+
+    var iCurrIndex = 0;
+
+    var iExceedMax = iMaxSimilar + 1;
+
+    var sSubStrPwd = sValue.substr(iCurrIndex, iExceedMax);
+
+    var iSubStrLength = sSubStrPwd.length;
+
+    while ((iSubStrLength == iExceedMax) && (iCurrIndex <= sValue.length - iExceedMax)) {
+        if (sCompareWith.indexOf(sSubStrPwd) >= 0) {
+            bFound = true;
+
+            break;
+        }
+
+        iCurrIndex++
+
+        sSubStrPwd = sValue.substr(iCurrIndex, iExceedMax);
+
+        iSubStrLength = sSubStrPwd.length
+    }
+
+    return bFound;
+}
+
+
+
+function HaveSufficientUniqueChar(sCompareWith, sValue, iMinUnique) {
+    var bEnough = false;
+
+    var iCurrIndex = 0;
+
+    var iCountFound = 0;
+
+    while (iCurrIndex < sValue.length) {
+        if (sCompareWith.indexOf(sValue.charAt(iCurrIndex)) < 0) {
+            iCountFound++;
+        }
+
+        iCurrIndex++
+    }
+
+    bEnough = (iCountFound >= iMinUnique);
+
+    return bEnough;
+}
+
+
+
+function CheckAll(chkVal, objId, idAll, idChild) {
+    var frm = frmAsp;
+
+    var cbAll = idAll;
+    var cbChild = idChild;
+
+    if (objId.indexOf(cbChild) != -1 && chkVal) {
+        var countTotal = 0;
+        var countChecked = 0;
+
+        for (var i = 0; i < frm.length; i++) {
+            if ((frm.elements[i].id.indexOf(cbChild) != -1) && (!(frm.elements[i].disabled)))
+                countTotal++;
+
+            if (frm.elements[i].id.indexOf(cbChild) != -1 && frm.elements[i].checked && !(frm.elements[i].disabled))
+                countChecked++;
+        }
+
+        if (countTotal == countChecked && countTotal > 0 && countChecked > 0) {
+            for (var i = 0; i < frm.length; i++) {
+                if (frm.elements[i].id.indexOf(cbAll) != -1) {
+                    if ((!frm.elements[i].checked) && (!(frm.elements[i].disabled)))
+                        frm.elements[i].checked = true;
+
+                    break;
+                }
+            }
+        }
+    }
+    else {
+        for (var i = 0; i < frm.length; i++) {
+            if (objId.indexOf(cbAll) != -1) {
+                if ((frm.elements[i].id.indexOf(cbChild) != -1) && (!(frm.elements[i].disabled)))
+                    frm.elements[i].checked = chkVal ? true : false;
+            }
+            else if (objId.indexOf(cbChild) != -1 && !chkVal) {
+                if ((frm.elements[i].id.indexOf(cbAll) != -1) && (!(frm.elements[i].disabled))) {
+                    frm.elements[i].checked = false;
+                    break;
+                }
+            }
+        }
+    }
+}
+
+
+
+function PromptAlert(sMsg, objButtons) {
+    $('#divPrompt').dialog('option', 'buttons', objButtons);
+
+    $('#divPrompt').dialog('open');
+
+    spnPromptMsg.innerHTML = sMsg;
+}
+
+
+
+var m_objControl;
+var m_iMaxLen = 0;
+var m_iSelectedTxtStartIndex = 0;
+var m_iSelectedTxtEndIndex = 0;
+var m_iSelectedTxtLen = 0;
+var m_iAvailableLen = 0;
+var m_sTxtStart = "";
+var m_sTxtEnd = "";
+function ChkMaxLen(objControl, iMaxLen, objEvent) {
+    //1. FireFox need to pass in the event when call the function if need to use the event.
+    //2. "window.event.keyCode", ".keyCode", "charCode" and ".which" in onkeypress do not recognize all the keys.
+    //   Some of the key codes are different between onkeypress and onkeydown/onkeyup.
+    //   Besides, not all browsers support onkeypress, therefore is recommended to put this function in onkeydown.
+    //3. When hit maximum length in FireFox, all the input will not be accepted, therefore need to manually skip some of the keys:
+    //   8 (Backspace), 9 (Tab), 16 (Shift), 17 (Ctrl), 18 (Alt), 33 (Page Up), 34 (Page Down), 35 (End), 36 (Home), 37 (Left Arrow), 38 (Up Arrow), 39 (Right Arrow), 40 (Down Arrow), 46 (Delete).
+    var iKeyCode = window.event ? window.event.keyCode : objEvent.keyCode;
+
+    if (iKeyCode == 8
+      || iKeyCode == 9
+      || (iKeyCode >= 16 && iKeyCode <= 18)
+      || (iKeyCode >= 33 && iKeyCode <= 40)
+      || iKeyCode == 46)
+        return true;
+
+    if (window.event.ctrlKey) {
+        return true;
+    }
+
+    //Deduct the length for highlighted text
+    var iSelectedTxtLen = 0;
+
+    if (document.selection) //IE
+        iSelectedTxtLen = document.selection.createRange().text.length;
+    else //FireFox, Opera and Safari
+        iSelectedTxtLen = document.activeElement.selectionEnd - document.activeElement.selectionStart;
+
+    return ((objControl.value.length - iSelectedTxtLen) < iMaxLen);
+}
+
+
+
+function ChkMaxLenOnPaste(objControl, iMaxLen) {
+    //Just for info, IE and Safari support onpaste, and the new version of FireFox also support (not sure starting from which version)
+    if (document.selection) //IE
+    {
+        var objSelectedTxt = document.selection.createRange();
+        var iAvailableLen = iMaxLen - objControl.value.length + objSelectedTxt.text.length;
+
+        try {
+            var sData = window.clipboardData.getData("Text").substr(0, iAvailableLen);
+            objSelectedTxt.text = sData;
+        }
+        catch (err) {
+        }
+
+        return false;
+    }
+    else //FireFox, Opera and Safari
+    {
+        m_objControl = objControl;
+        m_iMaxLen = iMaxLen;
+        m_iSelectedTxtStartIndex = document.activeElement.selectionStart;
+        m_iSelectedTxtEndIndex = document.activeElement.selectionEnd;
+        m_iSelectedTxtLen = m_iSelectedTxtEndIndex - m_iSelectedTxtStartIndex;
+        m_iAvailableLen = iMaxLen - objControl.value.length + m_iSelectedTxtLen;
+        m_sTxtStart = objControl.value.substr(0, m_iSelectedTxtStartIndex);
+        m_sTxtEnd = objControl.value.substr(m_iSelectedTxtEndIndex);
+
+        setTimeout("CutStr()", 0);
+
+        return true;
+    }
+}
+
+
+
+function CutStr() {
+    if (m_objControl.value.length > m_iMaxLen) {
+        var sCutStr = m_objControl.value.substr(m_iSelectedTxtStartIndex, m_iAvailableLen);
+        m_objControl.value = m_sTxtStart + sCutStr + m_sTxtEnd;
+        m_objControl.selectionEnd = m_objControl.value.length - m_sTxtEnd.length;
+    }
+}
+
+
+
+function disableButtons(bValue) {
+    if (bValue) {
+        $('input[type=submit]').addClass('clsDisabled');
+        $('input[type=submit]').attr('disabled', 'disabled');
+    } else {
+        $('input[type=submit]').removeClass('clsDisabled');
+        $('input[type=submit]').removeAttr('disabled');
+    }
+}
+
+
+
+function FilterInput(iType) {
+    var iKeyCode = window.event ? window.event.keyCode : objEvent.keyCode;
+    
+    if ((iKeyCode == 8) || (iKeyCode == 9) || (iKeyCode == 13) || (iKeyCode == 16) || (iKeyCode == 46)
+        || (iKeyCode == 37) || (iKeyCode == 38) || (iKeyCode == 39) || (iKeyCode == 40))
+        return true;
+
+    if ((1 & iType) == 1) {
+        if (((iKeyCode >= 96) && (iKeyCode <= 105)) || ((iKeyCode >= 48) && (iKeyCode <= 57))) //Modified by Alia on 8/8/2018 for TR00.071.042
+            return true;
+        else
+            return false;
+    }
+
+    return false;
+}
+
+
+
+function padout(sValue, iLength) {
+    while (sValue.length < iLength)
+        sValue = "0" + sValue;
+
+    return sValue;
+}
+
+
+
+function justifyDate(sFormat, sSplitter, sValue) {
+    sValue = sValue.replace(/_/g, '');
+
+    var dtCurr = new Date();
+
+    var sDateArr = String(sValue).split(sSplitter);
+
+    if (String(sValue).length > 0) {
+        if (sDateArr.length == 3) {
+            var iIndexD = 0;
+            var iIndexM = 0;
+            var iIndexY = 0;
+
+            var sFormatArr = String(sFormat).split(sSplitter);
+
+            if (sFormatArr.length == 3) {
+                for (var i = 0; i < sFormatArr.length; i++) {
+                    if (sFormatArr[i].indexOf('d') >= 0)
+                        iIndexD = i;
+                    else if (sFormatArr[i].indexOf('m') >= 0)
+                        iIndexM = i;
+                    else
+                        iIndexY = i;
+                }
+            }
+
+            if (isEmpty(String(sDateArr[iIndexD]))) {
+                sDateArr[iIndexD] = dtCurr.getDate();
+            }
+
+            if (sFormatArr[iIndexD] == 'dd')
+                sDateArr[iIndexD] = padout(sDateArr[iIndexD], 2);
+
+            if (isEmpty(String(sDateArr[iIndexM]))) {
+                sDateArr[iIndexM] = dtCurr.getMonth() + 1;
+            }
+
+            if (sFormatArr[iIndexM] == 'mm')
+                sDateArr[iIndexM] = padout(sDateArr[iIndexM], 2);
+
+            if (isEmpty(String(sDateArr[iIndexY]))) {
+                sDateArr[iIndexY] = dtCurr.getYear();
+            }
+
+            sDateArr[iIndexY] = padout(sDateArr[iIndexY], 2);
+
+            if (sFormatArr[iIndexY] == 'yy') {
+                sDateArr[iIndexY] = String(dtCurr.getFullYear()).substr(0, (4 - sDateArr[iIndexY].length)) + sDateArr[iIndexY];
+            }
+
+            sValue = '';
+            for (var j = 0; j < sDateArr.length; j++) {
+                if (!(isEmpty(sValue)))
+                    sValue += sSplitter;
+
+                sValue += String(sDateArr[j]);
+            }
+        }
+    }
+
+    return sValue;
+}
+
+
+
+function verifyDate(sFormat, sSplitter, sValue) {
+    var bIsValid = true;
+
+    var dtCurr = new Date();
+    
+    var sD = '00';
+    var iD = 1;
+    var sM = '00';
+    var iM = 1;
+    var iY = 2010;
+
+    var sDateArr = String(sValue).split(sSplitter);
+
+    if (String(sValue).length > 0) {
+        if (sDateArr.length == 3) {
+            var iIndexD = 0;
+            var iIndexM = 0;
+            var iIndexY = 0;
+
+            var sFormatArr = String(sFormat).split(sSplitter);
+
+            if (sFormatArr.length == 3) {
+                for (var i = 0; i < sFormatArr.length; i++) {
+                    if (sFormatArr[i].indexOf('d') >= 0)
+                        iIndexD = i;
+                    else if (sFormatArr[i].indexOf('m') >= 0)
+                        iIndexM = i;
+                    else
+                        iIndexY = i;
+                }
+            }
+
+            sD = String(sDateArr[iIndexD]);
+            iD = parseInt(sD, 10);
+            sM = String(sDateArr[iIndexM]);
+            iM = parseInt(sM, 10);
+            iY = parseInt(String(sDateArr[iIndexY]));
+
+            if ((iM < 1) || (iM > 12)) {
+                bIsValid = false;
+            }
+            else if ((iY <= 1900) || (iY > dtCurr.getFullYear() + 100)) {
+                bIsValid = false;
+            }
+            else if ((!(isNaN(iD))) && (!(isNaN(iM))) && (!(isNaN(iY))) && (iD > 0)) {
+                if (iM == 2)
+                {
+                    //Modified by Dickson, 20151222 [00.039.768 - Check leap year]
+                    //------Start
+                    if (((iY % 4 == 0) && (iY % 100 != 0)) || (iY % 400 == 0))
+                    {
+                        if (iD > 29)
+                        {
+                            bIsValid = false;
+                        }
+                    }
+                    else
+                    {
+                        if (iD > 28)
+                        {
+                            bIsValid = false;
+                        }
+                    }
+                    //------End
+                }
+                else if (iM <= 7) {
+                    if ((iM % 2) == 0) {
+                        if (iD > 30)
+                            bIsValid = false;
+                    }
+                    else {
+                        if (iD > 31)
+                            bIsValid = false;
+                    }
+                }
+                else if (iM > 7) {
+                    if ((iM % 2) == 0) {
+                        if (iD > 31)
+                            bIsValid = false;
+                    }
+                    else {
+                        if (iD > 30)
+                            bIsValid = false;
+                    }
+                }
+            }
+            else {
+                bIsValid = false;
+            }
+        }
+        else {
+            bIsValid = false;
+        }
+    }
+
+    return bIsValid;
+}
+
+
+
+function verifyEndDate(sFormat, sSplitter, sStartValue, sEndValue) {
+    var bIsValid = true;
+
+    if (bIsValid) {
+        var sStartDate = justifyDate(sFormat, sSplitter, sStartValue);
+        var sEndDate = justifyDate(sFormat, sSplitter, sEndValue);
+
+        var sStartDateArr = String(sStartDate).split(sSplitter);
+        var sEndDateArr = String(sEndDate).split(sSplitter);
+
+        if ((sStartDateArr.length == 3) && (sEndDateArr.length == 3)) {
+            var iIndexD = 0;
+            var iIndexM = 0;
+            var iIndexY = 0;
+
+            var sFormatArr = String(sFormat).split(sSplitter);
+
+            if (sFormatArr.length == 3) {
+                for (var i = 0; i < sFormatArr.length; i++) {
+                    if (sFormatArr[i].indexOf('d') >= 0)
+                        iIndexD = i;
+                    else if (sFormatArr[i].indexOf('m') >= 0)
+                        iIndexM = i;
+                    else
+                        iIndexY = i;
+                }
+            }
+
+            var dtCurr = new Date();
+
+            //add padding
+            var sdd, smm, syy, edd, emm, eyy;
+
+            sdd = padout(sStartDateArr[iIndexD], 2);
+
+            smm = padout(sStartDateArr[iIndexM], 2);
+
+            syy = padout(sStartDateArr[iIndexY], 2);
+
+            syy = String(dtCurr.getFullYear()).substr(0, (4 - syy.length)) + syy;
+
+            edd = padout(sEndDateArr[iIndexD], 2);
+
+            emm = padout(sEndDateArr[iIndexM], 2);
+
+            eyy = padout(sEndDateArr[iIndexY], 2);
+
+            eyy = String(dtCurr.getFullYear()).substr(0, (4 - eyy.length)) + eyy;
+
+            var iStartDate = parseInt(syy + smm + sdd);
+            var iEndDate = parseInt(eyy + emm + edd);
+
+            if (iEndDate < iStartDate) {
+                bIsValid = false;
+            }
+        }
+    }
+
+    return bIsValid;
+}
+
+
+
+function getDate(sFormat, sSplitter, sValue) {
+    var iOutput = 0;
+
+    var sValueArr = String(sValue).split(sSplitter);
+
+    if (sValueArr.length == 3) {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3) {
+            for (var i = 0; i < sFormatArr.length; i++) {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+        var dtCurr = new Date();
+
+        //add padding
+        var sdd, smm, syy;
+
+        sdd = padout(sValueArr[iIndexD], 2);
+
+        smm = padout(sValueArr[iIndexM], 2);
+
+        syy = padout(sValueArr[iIndexY], 2);
+
+        syy = String(dtCurr.getFullYear()).substr(0, (4 - syy.length)) + syy;
+
+        iOutput = parseInt(syy + smm + sdd);
+    }
+
+    return iOutput;
+}
+
+
+
+
+function getNextDate(sFormat, sSplitter, sValue) {
+    var iOutput = 0;
+
+    var sValueArr = String(sValue).split(sSplitter);
+
+    if (sValueArr.length == 3) {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3) {
+            for (var i = 0; i < sFormatArr.length; i++) {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+
+        //*************************************Modification starts here*******************************************//
+        //Code modified by Velu on 30/07/2014
+        //var dtCurr = new Date(sValue);
+
+        var dtCurr = new Date(sValueArr[iIndexY], sValueArr[iIndexM] - 1, sValueArr[iIndexD]);
+
+        //add padding
+        var sdd, smm, syy;
+
+        sdd = padout(sValueArr[iIndexD], 2);
+
+        smm = padout(sValueArr[iIndexM], 2);
+
+        syy = padout(sValueArr[iIndexY], 2);
+
+        var lastDayOfMonth = new Date(dtCurr.getFullYear(), dtCurr.getMonth() + 1, 0);
+        var lastDay = lastDayOfMonth.getDate();
+
+        if (sdd >= lastDay)
+        {
+            sdd = 0;
+            if (smm == 12) {
+                smm = 1;
+                syy = (Number(syy) + 1);
+            }
+            else
+                smm = (Number(smm) + 1);
+        }
+        //*************************************Modification ends here*******************************************//
+
+        syy = String(dtCurr.getFullYear()).substr(0, (4 - syy.length)) + syy;
+
+        iOutput = (padout((Number(sdd) + 1).toString(), 2) + sSplitter + smm + sSplitter + syy);
+    }
+
+    return iOutput;
+}
+
+function getPreviousDate(sFormat, sSplitter, sValue) {
+    var iOutput = 0;
+
+    var sValueArr = String(sValue).split(sSplitter);
+
+    if (sValueArr.length == 3) {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3) {
+            for (var i = 0; i < sFormatArr.length; i++) {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+
+        //*************************************Modification starts here*******************************************//
+        //Code modified by Velu on 30/07/2014
+        //var dtCurr = new Date(sValue);
+
+        var dtCurr = new Date(sValueArr[iIndexY], sValueArr[iIndexM] - 1, sValueArr[iIndexD]);
+
+        var dtNewDate = new Date(new Date(dtCurr).setDate(dtCurr.getDate() - 1));
+
+        //add padding
+        var sdd, smm, syy;
+
+        sdd = padout(dtNewDate.getDate().toString(), 2);
+
+        smm = padout((dtNewDate.getMonth() + 1).toString(), 2);
+
+        syy = padout(dtNewDate.getFullYear().toString(), 2);
+
+        //var lastDayOfMonth = new Date(dtCurr.getFullYear(), dtCurr.getMonth() + 1, 0);
+        //var lastDay = lastDayOfMonth.getDate();
+
+        //if (sdd >= lastDay) {
+            //sdd = 0;
+            //if (smm == 12) {
+                //smm = 1;
+                //syy = (Number(syy) + 1);
+            //}
+            //else
+                //smm = (Number(smm) + 1);
+        //}
+        //*************************************Modification ends here*******************************************//
+
+        //syy = String(dtCurr.getFullYear()).substr(0, (4 - syy.length)) + syy;
+
+        iOutput = (sdd + sSplitter + smm + sSplitter + syy);
+    }
+
+    return iOutput;
+}
+
+function getPreviousNextMonth(sFormat, sSplitter, sValue, sNumofMonth, sOperator)
+{
+    var iOutput = 0;
+
+    var sValueArr = String(sValue).split(sSplitter);
+
+    if (sValueArr.length == 3)
+    {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3)
+        {
+            for (var i = 0; i < sFormatArr.length; i++)
+            {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+
+        //*************************************Modification starts here*******************************************//
+        //Code modified by Velu on 30/07/2014
+        //var dtCurr = new Date(sValue);
+
+        //var dtTempISO = sValueArr[iIndexY] + '/' + sValueArr[iIndexM] + '/' + sValueArr[iIndexD];
+        //var dtCurr = new Date(dtTempISO);
+        var dtCurr = new Date(sValueArr[iIndexY], sValueArr[iIndexM] - 1, sValueArr[iIndexD]);
+        if (sOperator == '+')
+        {
+            var dtNewDate = new Date(new Date(dtCurr).setMonth(dtCurr.getMonth() + sNumofMonth));
+        }
+        else if (sOperator == '-')
+        {
+            var dtNewDate = new Date(new Date(dtCurr).setMonth(dtCurr.getMonth() - sNumofMonth));
+        }
+
+        
+
+        //add padding
+        var sdd, smm, syy;
+
+        sdd = padout(dtNewDate.getDate().toString(), 2);
+
+        smm = padout((dtNewDate.getMonth() + 1).toString(), 2);
+
+        syy = padout(dtNewDate.getFullYear().toString(), 2);
+
+        //sdd = padout(sValueArr[iIndexD], 2);
+
+        //smm = padout(sValueArr[iIndexM], 2);
+
+        //syy = padout(sValueArr[iIndexY], 2);
+
+        //var lastDayOfMonth = new Date(dtCurr.getFullYear(), dtCurr.getMonth() + 1, 0);
+        //var lastDay = lastDayOfMonth.getDate();
+
+        //if (sdd >= lastDay) {
+            //sdd = 0;
+            //if (smm == 12) {
+                //smm = 1;
+                //syy = (Number(syy) + 1);
+            //}
+            //else
+                //smm = (Number(smm) + 1);
+        //}
+        //*************************************Modification ends here*******************************************//
+
+        //syy = String(dtCurr.getFullYear()).substr(0, (4 - syy.length)) + syy;
+
+        iOutput = (sdd + sSplitter + smm + sSplitter + syy);
+    }
+
+    return iOutput;
+}
+
+function getMonthDifference(sFormat, sSplitter, sStartValue, sEndValue)
+{
+    var iOutput = 0;
+
+    var sStartDate = justifyDate(sFormat, sSplitter, sStartValue);
+    var sEndDate = justifyDate(sFormat, sSplitter, sEndValue);
+
+    var sStartDateArr = String(sStartDate).split(sSplitter);
+    var sEndDateArr = String(sEndDate).split(sSplitter);
+
+    if ((sStartDateArr.length == 3) && (sEndDateArr.length == 3))
+    {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3)
+        {
+            for (var i = 0; i < sFormatArr.length; i++)
+            {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+        var dtStart = new Date(sStartDateArr[iIndexY], sStartDateArr[iIndexM] - 1, sStartDateArr[iIndexD]);
+        var dtEnd = new Date(sEndDateArr[iIndexY], sEndDateArr[iIndexM] - 1, sEndDateArr[iIndexD]);
+
+        var oneDay_ms = 1000 * 60 * 60 * 24;
+        var oneMonth_day = 30.4166666667;
+
+        var dtStart_ms = dtStart.getTime();
+        var dtEnd_ms = dtEnd.getTime();
+
+        var diffDay_ms = dtEnd_ms - dtStart_ms;
+
+        var diffDay = (diffDay_ms / oneDay_ms);
+        var diffMth = (diffDay / oneMonth_day);
+
+        iOutput = diffMth.toFixed(2);
+    }
+
+    return iOutput;
+}
+
+function compareDate(sFormat, sSplitter, sValue1, sValue2)
+{
+    var iOutput = 0;
+
+    var sDate1 = justifyDate(sFormat, sSplitter, sValue1);
+    var sDate2 = justifyDate(sFormat, sSplitter, sValue2);
+
+    var sDate1Arr = String(sDate1).split(sSplitter);
+    var sDate2Arr = String(sDate2).split(sSplitter);
+
+    if ((sDate1Arr.length == 3) && (sDate2Arr.length == 3))
+    {
+        var iIndexD = 0;
+        var iIndexM = 0;
+        var iIndexY = 0;
+
+        var sFormatArr = String(sFormat).split(sSplitter);
+
+        if (sFormatArr.length == 3)
+        {
+            for (var i = 0; i < sFormatArr.length; i++)
+            {
+                if (sFormatArr[i].indexOf('d') >= 0)
+                    iIndexD = i;
+                else if (sFormatArr[i].indexOf('m') >= 0)
+                    iIndexM = i;
+                else
+                    iIndexY = i;
+            }
+        }
+
+        var dtDate1 = new Date(sDate1Arr[iIndexY], sDate1Arr[iIndexM] - 1, sDate1Arr[iIndexD]);
+        var dtDate2 = new Date(sDate2Arr[iIndexY], sDate2Arr[iIndexM] - 1, sDate2Arr[iIndexD]);
+
+        if (dtDate1 > dtDate2)
+        {
+            iOutput = 1;
+        }
+        else if (dtDate1 < dtDate2)
+        {
+            iOutput = -1;
+        }
+        else
+        {
+            iOutput = 0;
+        }
+    }
+
+    return iOutput;
+}
+
+function justifyTime(sValue) {
+    sValue = sValue.replace(/_/g, '');
+
+    var sTimeArr = String(sValue).split(':');
+
+    if (String(sValue).length > 0) {
+        if (sTimeArr.length == 2) {
+            sValue = padout(sTimeArr[0], 2) + ':' + padout(sTimeArr[1], 2);
+        }
+    }
+
+    return sValue;
+}
+
+
+
+function verifyTime(sValue) {
+    var bIsValid = true;
+
+    var sTimeArr = String(sValue).split(':');
+
+    if (String(sValue).length > 0) {
+        if (sTimeArr.length == 2) {
+            if ((parseInt(sTimeArr[0]) >= 24) || (parseInt(sTimeArr[1]) >= 60))
+                bIsValid = false;
+        }
+        else {
+            bIsValid = false;
+        }
+    }
+
+    return bIsValid;
+}
+
+
+
+var bAlertChanges = false;
+
+function setupAlertChanges() {
+    $('input').change(function () {
+        bAlertChanges = true;
+    });
+
+    $('select').change(function () {
+        bAlertChanges = true;
+    });
+
+    $('textarea').change(function () {
+        bAlertChanges = true;
+    });
+}
+
+
+
+function formatEmptyValue(sValue, sReplace) {
+    if (isEmpty(sValue))
+        sValue = sReplace;
+
+    return sValue;
+}
+
+
+
+function verifyValue(sInput) {
+    var bValue = true;
+
+    if ((String(sInput).toLowerCase() == 'no') || (String(sInput).toLowerCase() == 'Off')
+        || (String(sInput).toLowerCase() == 'false') || (String(sInput).toLowerCase() == '0'))
+    {
+        bValue = false;
+    }
+
+    return bValue;
+}
+
+
+
+function calcHourDiff(sFm, sTo) {
+    var sFmArr = String(sFm).split(':');
+    var dFm = parseFloat(adjustHour(sFmArr[0])) * 60 + parseFloat(sFmArr[1]);
+
+    var sToArr = String(sTo).split(':');
+    var dTo = parseFloat(adjustHour(sToArr[0])) * 60 + parseFloat(sToArr[1]);
+
+    var dValue = ((dTo - dFm) / 60);
+    if (dValue < 0)
+        dValue = 24 + dValue;
+
+    return dValue.toFixed(2);
+}
+
+
+
+function adjustHour(sValue) {
+    var dValue = parseFloat(sValue);
+
+    if (dValue == 0)
+        dValue = 24;
+
+    return dValue;
+}
+
+
+function getFinYear(sFormat, sSplitter, sValue, iFinMonth, iFinDay) {
+    var iDate = getDate(sFormat, sSplitter, sValue);
+
+    var iYear = String(iDate).substr(0, 4);
+    var iMonth = String(iDate).substr(4, 2);
+    var iDay = String(iDate).substr(6, 2);
+
+    var dtFinDate = new Date(iYear, (parseInt(iFinMonth) - 1), iFinDay);
+
+    var dtDate = new Date(iYear, (parseInt(iMonth) - 1), iDay); //Added by Alia on 21/11/2019 for TR00.082.136
+    //var dtSelDate = new Date(iYear, (iMonth - 1), iDay);
+
+    //var iFinYear = 0;
+    
+    //if (parseInt(iMonth) >= parseInt(iFinMonth)) {
+    //if ((parseInt(iDay) >= parseInt(iFinDay)) && (parseInt(iMonth) >= parseInt(iFinMonth))) //Modified by Alia on 21/12/2018 for TR00.077.129
+    if ((dtDate >= dtFinDate) && (parseInt(iMonth) >= parseInt(iFinMonth))) //Added by Alia on 21/11/2019 for TR00.082.136
+    {
+        dtFinDate = new Date((parseInt(iYear) + 1), (iFinMonth - 1), iFinDay);
+        dtFinDate.setDate(dtFinDate.getDate() - 1);
+    }
+    
+    return dtFinDate.getFullYear();
+}
+
+
+
+function formatScriptValue(sValue) {
+    sValue = sValue.replace(/'/g, "\\'");
+    
+    return sValue;
+}
+
+//kahkin 17/3/2021 [UHCMS-18] after upgrade to jquery 1.12.1, put showChkStatus as common function shared among modules to align ui layout
+function showChkStatus($obj) {
+    $('#divChkStatus').fadeIn(200).position({
+        of: $obj,
+        my: 'left top',
+        at: 'left-1 bottom',
+        collision: 'none'
+    });
+}
+
+function showChkStatusAppr(sChkType, $obj) {
+    if (sChkType == 'A') {
+        $('#divChkAssessedStatus').fadeIn(200).position({
+            of: $obj,
+            my: 'left top',
+            at: 'left-1 bottom',
+            collision: 'none'
+        });
+    }
+    else {
+        $('#divChkProcessedStatus').fadeIn(200).position({
+            of: $obj,
+            my: 'left top',
+            at: 'left-1 bottom',
+            collision: 'none'
+        });
+    }
+}
+//kahkin 17/3/2021 [UHCMS-18] end

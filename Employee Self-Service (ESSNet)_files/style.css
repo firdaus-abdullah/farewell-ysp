@@ -1,0 +1,2659 @@
+/** Stylesheet for Orisoft **/
+/*kahkin 17/3/2021 [UHCMS-18]
+@font-face {
+    font-family: 'gothamlight';
+    src: url('/hrmsnet/fonts/webkit/gotham-light-webfont.eot');
+    src: url('/hrmsnet/fonts/webkit/gotham-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/hrmsnet/fonts/webkit/gotham-light-webfont.woff') format('woff'),
+         url('/hrmsnet/fonts/webkit/gotham-light-webfont.ttf') format('truetype'),
+         url('/hrmsnet/fonts/webkit/gotham-light-webfont.svg#gothamlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothambook';
+    src: url('/hrmsnet/fonts/webkit/gotham-book-webfont.eot');
+    src: url('/hrmsnet/fonts/webkit/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/hrmsnet/fonts/webkit/gotham-book-webfont.woff') format('woff'),
+         url('/hrmsnet/fonts/webkit/gotham-book-webfont.ttf') format('truetype'),
+         url('/hrmsnet/fonts/webkit/gotham-book-webfont.svg#gothambook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothambold';
+    src: url('/hrmsnet/fonts/webkit/gotham-bold-webfont.eot');
+    src: url('/hrmsnet/fonts/webkit/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('/hrmsnet/fonts/webkit/gotham-bold-webfont.woff') format('woff'),
+         url('/hrmsnet/fonts/webkit/gotham-bold-webfont.ttf') format('truetype'),
+         url('/hrmsnet/fonts/webkit/gotham-bold-webfont.svg#gothambold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}*/
+@font-face {
+    font-family: 'gothamlight';
+    src: url('../fonts/webkit/gotham-light-webfont.eot');
+    src: url('../fonts/webkit/gotham-light-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/webkit/gotham-light-webfont.woff') format('woff'),
+         url('../fonts/webkit/gotham-light-webfont.ttf') format('truetype'),
+         url('../fonts/webkit/gotham-light-webfont.svg#gothamlight') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothambook';
+    src: url('../fonts/webkit/gotham-book-webfont.eot');
+    src: url('../fonts/webkit/gotham-book-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/webkit/gotham-book-webfont.woff') format('woff'),
+         url('../fonts/webkit/gotham-book-webfont.ttf') format('truetype'),
+         url('../fonts/webkit/gotham-book-webfont.svg#gothambook') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'gothambold';
+    src: url('../fonts/webkit/gotham-bold-webfont.eot');
+    src: url('../fonts/webkit/gotham-bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/webkit/gotham-bold-webfont.woff') format('woff'),
+         url('../fonts/webkit/gotham-bold-webfont.ttf') format('truetype'),
+         url('../fonts/webkit/gotham-bold-webfont.svg#gothambold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+html {
+    font-size: 12px; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+    -ms-text-size-adjust: 100%; /* 2 */
+}
+
+input:focus,select:focus,textarea:focus {outline: 1px solid #59B9D1;    }
+
+html,
+button,
+input,
+select,
+textarea {
+    font-family:Tahoma, Geneva, sans-serif; /* Added from css@17/Dec/2013 */
+}
+
+body {
+    margin: 0;
+}
+
+h1 {color:#02617F; font-size:14px; /* font-family:'gothambold' */}
+h2 {color:#02617F; font-size:12px; /* font-family:'gothambold' */}
+h3 {}
+h4 {}
+h5 {}
+
+/* Added from css@17/Dec/2013 */
+.nostyle {list-style:none;}
+.pagination {float:right; margin-right: 10px}
+.pagination li {float:left;color:#A3AEBE; font-size:12px; /*font-family:'gothambold';*/ display:inline-block; margin:0px 10px; font-weight:bold; }
+.pagination li.active {color:#02617F;}
+/* End Added from css@17/Dec/2013 */
+
+a { color: #717F9C; text-decoration:none;}
+
+/*created for including css*/
+select {
+    width:90% !important; 
+    padding:5px !important; 
+    border:0 !important;
+}
+
+input[type='submit'] {
+	background:#036280; 
+	color:#FFF;
+	padding: 7px 8px 6px 8px; 
+	font-weight:bold; 
+    border-width: 0;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+/*kahkin 17/11/2017*/
+input[type='button'] {
+	background:#036280; 
+	color:#FFF;
+	padding: 7px 8px 6px 8px; 
+	font-weight:bold; 
+    border-width: 0;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 11px;
+}
+/*end*/
+
+/*created for including css*/
+
+.clearfix:before,
+.clearfix:after {
+	display: table;
+	content: " ";
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.textalign-center {text-align:center; display:block;}
+.textalign-left {text-align:left; display:block;}
+.textalign-right {text-align:right; display:block;}
+.left {float:left;}
+.right {float:right;}
+/* Commented from css@17/Dec/2013 
+.quart {width:25%;}
+.half {width:50%;}
+.full {width:100%;}
+.block_1_3 {width:32%;}
+.block_2_3 {width:70%;}
+
+End commented from css@17/Dec/2013 */
+
+.tri {width:33%;} /*created to cater 33% width*/
+.quart-less {width:75%;} /*created to cater 75% width*/
+
+/*LDS*/
+.quart_1 {width:23%; padding-right:1.5%;}
+
+/* Added from css@17/Dec/2013 */
+.quart {width:23%; padding-right:2%;}
+.half {width:48%; padding-right:2%;}
+.full {width:98%; padding-right:2%;}
+.block_1_3 {width:31%; padding-right:2%;}
+.block_2_3 {width:64%; padding-right:2%;}
+.block_3_3 {width:100%;}
+.block_4_5 {width: 75%;}
+/* End Added from css@17/Dec/2013 */
+
+.clearfix {clear:both;}
+.inline {display:inline-block !important;}
+.bold {font-weight:bold}
+.zeros {padding:0; margin:0;}
+
+/* Added from css@17/Dec/2013 */
+.hidden {display:none;}
+.smaller {font-size: 80%;}
+.paddingTop10 { padding-top:10px;}
+.paddingSide20 {padding:0 20px;}
+/* End Added from css@17/Dec/2013 */
+
+#home-tagline-background {background:#59B9D1;padding:20px;}
+#home-tageline-primary {color:#FFF; font-size:30px; display:block; font-weight:bold; /*font-family:'gothambold'*/}
+#home-tageline-secondary {color:#FFF; font-size:16px; display:block;}
+
+#header {
+	vertical-align: middle;     /* modifed by Bryan - changed to sync with latest css@17/Dec/2013 */
+    background-color: #036280;
+	width:100%;
+}
+
+#footer {
+    background-color: #FFF;
+	border-top:1px dotted #D8D8D8;
+    margin-top: 10px;
+}
+
+#content {
+}
+
+.toggle {padding-top:10px;} /* Added from css@17/Dec/2013 */
+
+.gearmenu:hover, .toggle:hover {cursor:pointer;}
+
+.gear-menu {
+	position:absolute; 
+	display:none; 
+	background:#036280; 
+	z-index:9;
+	margin-left:-260px;
+	padding-bottom: 0px; /*changed*/
+	width:310px; 
+	border-radius:4px;
+	opacity:0.98;
+    /*margin-top: 41px;*/ /*changed*/
+    top: 79px;
+}
+
+.gear-menu-header {
+    color:#FFF; 
+    font-size: 11px;
+    display:block;
+    white-space: nowrap;
+    background-color: #6AC1D6;
+    text-align: center;
+    padding: 3px 0px;
+    margin-bottom: 15px;
+    font-family: Tahoma, Arial, 'Times New Roman';
+}
+
+.gear-menu a {
+	color:#FFF;
+}
+
+.header-quick-link {
+    padding: 30px 10px; 
+    border-right: 1px solid #106B87;
+    border-left: 1px solid #106B87;
+}
+
+.header-login-profile {
+    float: right;
+    padding: 20px 10px; 
+    border-right: 1px solid #106B87;
+    border-left: 1px solid #106B87;
+}
+
+.gear-menu-profile {
+    background-size: cover;
+    background-position: center;
+    height: 110px; 
+    width: 110px; 
+    margin: 10px 10px;
+}
+
+form .frmOriText {
+	height: 27px;
+	/*width:250px;*/
+	/*width:88%;*/
+	width:97%  !important;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:10%;*/
+	background-position:95% 5px;
+	background-repeat:no-repeat;
+    padding: 0px 1% 0px 1%;
+}
+
+form .frmOriText *{
+	padding:5px;
+	border:0;
+}
+
+form .frmOriText100 {
+	height: 27px;
+	width: 100%;
+	background-color: transparent;
+	border:0;
+    margin: 1px -1px 1px 0px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:0%;*/
+    background-position:95% 5px;    /* Added from css@17/Dec/2013 */
+	background-repeat:no-repeat;    /* Added from css@17/Dec/2013 */
+    padding: 0px 1% 0px 1%;
+}
+
+form .frmOriText80 {
+	height: 27px;
+	width:78%;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:0%;*/
+    background-position:95% 5px;    /* Added from css@17/Dec/2013 */
+	background-repeat:no-repeat;    /* Added from css@17/Dec/2013 */
+    padding: 0px 1% 0px 1%;
+}
+
+form .frmOriText65 {
+	height: 27px;
+	width:73%;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:0%;*/
+    background-position:95% 5px;    /* Added from css@17/Dec/2013 */
+	background-repeat:no-repeat;    /* Added from css@17/Dec/2013 */
+    padding: 0px 1% 0px 1%;
+}
+
+/*added in latest css*/
+form .frmOriText50 {
+	height: 27px;
+	width:48%;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:0%;*/
+	background-position:95% 5px;
+	background-repeat:no-repeat;
+    padding: 0px 1% 0px 1%;
+}
+
+/*added in latest css*/
+form .frmOriSelect {
+	height: 27px;
+	/*width:250px;*/
+	/*width:88%;*/
+	width:99% !important;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:10%;*/
+}
+
+/*added in latest css*/
+form .frmOriSelect *{
+	padding:5px;
+	border:0;
+}
+
+form .frmOriSelectTrans {
+	height: 27px;
+	/*width:250px;*/
+	/*width:88%;*/
+	width:99% !important;
+	background:transparent;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:10%;*/
+}
+
+form .frmOriTextArea {
+	height:80px;
+	/*width:250px;*/
+	width: 100%;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	padding:10px 1% 10px 1%;
+	color:#404040;
+	/*padding-right:10%;*/
+	resize: none;
+    font-size: 12px;
+}
+
+form .frmOriTextArea80 {
+	height:80px;
+	/*width:250px;*/
+	width: 97% !important;
+	background:transparent;
+	border:0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+	/*margin:5px 0px;*/
+	padding:10px 1% 10px 1%;
+	color:#404040;
+	/*padding-right:10%;*/
+    background-position:95% 5px;
+	background-repeat:no-repeat;
+	resize: none;
+    font-size: 12px;
+}
+
+form .frmOriTextArea50 {
+	height:50px;
+	/*width:250px;*/
+	width: 97% !important;
+	background:transparent;
+	border:0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+	/*margin:5px 0px;*/
+	padding:10px 1% 10px 1%;
+	color:#404040;
+	/*padding-right:10%;*/
+    background-position:95% 5px;
+	background-repeat:no-repeat;
+	resize: none;
+    font-size: 12px;
+}
+
+/*kahkin 17/11/2017 [TR00.066.771]*/
+
+form .frmOriTextArea30 {
+	height:30px;
+	/*width:250px;*/
+	width: 97% !important;
+	background:transparent;
+	border:0;
+    margin-top: 5px;
+    margin-bottom: 5px;
+	/*margin:5px 0px;*/
+	padding:10px 1% 10px 1%;
+	color:#404040;
+	/*padding-right:10%;*/
+    background-position:95% 5px;
+	background-repeat:no-repeat;
+	resize: none;
+    font-size: 12px;
+}
+/**/
+
+form .frmSearchText {
+	height: 25px;
+	/*width:250px;*/
+	/*width:88%;*/
+	width:100%  !important;
+	background:#EAEDF4;
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+	/*padding-right:10%;*/
+	background-position:95% 5px;
+	background-repeat:no-repeat;
+}
+
+
+
+form .frmOriRadio {
+	height:30px;
+	/*width:250px;*/
+	/*width:88%;*/
+	border:0;
+    margin-top: 5px;
+	/*margin:5px 0px;*/
+	color:#404040;
+    white-space: nowrap;
+    font-size: 14px;
+}
+
+form .frmOriCheckBox {
+    list-style: none;
+    margin-top: 5px;
+    margin-left: -50px;
+}
+
+form .frmOriCheckBox li
+{ 
+    float:left; 
+	color:#404040;
+    white-space:nowrap;
+    font-size:14px;
+    padding-right: 20px;
+} 
+
+/* Added by Bryan@03/Oct/2014 New css for checkbox in Criteria Screen  */
+form .frmCriteriaCheckBox {
+    list-style: none;
+    height: 27px;
+    width:97%;
+    padding: 0px 1% 0px 1%;
+    margin-top: 5px;
+    margin-left: 0px;
+}
+/* End Added by Bryan@03/Oct/2014 New css for checkbox in Criteria Screen  */
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-search {	background:url('/hrmsnet/images/search_icon.png') #EAEDF4 95% 5px no-repeat;}*/
+form .ico-search {	background:url('../images/search_icon.png') #EAEDF4 95% 5px no-repeat;}
+form .ico-search::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-date {	background:url('/hrmsnet/images/calendar_icon.png') #EAEDF4 98% 5px no-repeat;}*/
+form .ico-date {	background:url('../images/calendar_icon.png') #EAEDF4 98% 5px no-repeat;}
+form .ico-date::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-time {	background:url('/hrmsnet/images/time_icon.png') #EAEDF4 98% 5px no-repeat;}*/
+form .ico-time {	background:url('../images/time_icon.png') #EAEDF4 98% 5px no-repeat;}
+form .ico-time::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-search-2 {	background:url('/hrmsnet/images/search_icon.png') #EAEDF4 98% 5px no-repeat;}*/
+form .ico-search-2 {	background:url('../images/search_icon.png') #EAEDF4 98% 5px no-repeat;}
+form .ico-search-2::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+
+/* Added from css@17/Dec/2013 */
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-weight { background-image:url(/hrmsnet/images/weight.png); background-repeat:no-repeat;}
+form .ico-height { background-image:url(/hrmsnet/images/ruler.png); background-repeat:no-repeat;}
+form .ico-email { background-image:url(/hrmsnet/images/email.png); background-repeat:no-repeat;}*/
+form .ico-weight { background-image:url(../images/weight.png); background-repeat:no-repeat;}
+form .ico-height { background-image:url(../images/ruler.png); background-repeat:no-repeat;}
+form .ico-email { background-image:url(../images/email.png); background-repeat:no-repeat;}
+form .ico-email::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-fax { background-image:url(/hrmsnet/images/fax.png); background-repeat:no-repeat;}*/
+form .ico-fax { background-image:url(../images/fax.png); background-repeat:no-repeat;}
+form .ico-fax::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-phone { background-image:url(/hrmsnet/images/phone.png); background-repeat:no-repeat;}*/
+form .ico-phone { background-image:url(../images/phone.png); background-repeat:no-repeat;}
+form .ico-phone::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*form .ico-mobile { background-image:url(/hrmsnet/images/mobile.png); background-repeat:no-repeat;}*/
+form .ico-mobile { background-image:url(../images/mobile.png); background-repeat:no-repeat;}
+form .ico-mobile::-ms-clear {    display: none;}  /*created to clear the default "X" icon for textbox overlapping icon set in css*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*.ico-analysis { background:url('/hrmsnet/images/popup-icons/analysis_charting.png') no-repeat;}
+.ico-application { background:url('/hrmsnet/images/popup-icons/application_form.png') no-repeat;}
+.ico-audit { background:url('/hrmsnet/images/popup-icons/audit_trails.png') no-repeat;}
+.ico-cancellation { background:url('/hrmsnet/images/popup-icons/cancellation.png') no-repeat;}
+.ico-chart { background:url('/hrmsnet/images/popup-icons/chart.png') no-repeat;}
+.ico-enquiries { background:url('/hrmsnet/images/popup-icons/enquiries_listing.png') no-repeat;}
+.ico-process { background:url('/hrmsnet/images/popup-icons/process.png') no-repeat;}
+.ico-reports { background:url('/hrmsnet/images/popup-icons/reports.png') no-repeat;}
+.ico-security { background:url('/hrmsnet/images/popup-icons/security.png') no-repeat;}
+.ico-setup { background:url('/hrmsnet/images/popup-icons/setup.png') no-repeat;}
+.ico-transaction { background:url('/hrmsnet/images/popup-icons/transaction_entry.png') no-repeat;}*/
+.ico-analysis { background:url('../images/popup-icons/analysis_charting.png') no-repeat;}
+.ico-application { background:url('../images/popup-icons/application_form.png') no-repeat;}
+.ico-audit { background:url('../images/popup-icons/audit_trails.png') no-repeat;}
+.ico-cancellation { background:url('../images/popup-icons/cancellation.png') no-repeat;}
+.ico-chart { background:url('../images/popup-icons/chart.png') no-repeat;}
+.ico-enquiries { background:url('../images/popup-icons/enquiries_listing.png') no-repeat;}
+.ico-process { background:url('../images/popup-icons/process.png') no-repeat;}
+.ico-reports { background:url('../images/popup-icons/reports.png') no-repeat;}
+.ico-security { background:url('../images/popup-icons/security.png') no-repeat;}
+.ico-setup { background:url('../images/popup-icons/setup.png') no-repeat;}
+.ico-transaction { background:url('../images/popup-icons/transaction_entry.png') no-repeat;}
+/* End Added from css@17/Dec/2013 */
+
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/* Moved from bottom */
+/*.ico-leave {background:url("/hrmsnet/images/icon/calendar.fw.png") no-repeat;}
+.ico-time {background:url("/hrmsnet/images/icon/time.fw.png") no-repeat;}
+.ico-approve {background:url("/hrmsnet/images/icon/approve.fw.png") no-repeat;}
+.ico-claim {background:url("/hrmsnet/images/icon/claim.fw.png") no-repeat;}
+.ico-history {background:url("/hrmsnet/images/icon/history.fw.png") no-repeat;}
+.ico-pending {background:url("/hrmsnet/images/icon/pending.fw.png") no-repeat;}
+.ico-report {background:url("/hrmsnet/images/icon/report.fw.png") no-repeat;}
+.ico-setting {background:url("/hrmsnet/images/icon/setting.fw.png") no-repeat;}
+.ico-work {background:url("/hrmsnet/images/icon/work.fw.png") no-repeat;}
+
+.ico-delete {background:url("/hrmsnet/images/delete_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-save {background:url("/hrmsnet/images/save_icon.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-edit {background:url("/hrmsnet/images/edit_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-updown {background:url("/hrmsnet/images/up_down.png") 10px 6px no-repeat; display:block;height: 14px; width: 14px;display:inline-block; padding-left:10px;}    /* Added from css@17/Dec/2013 */*/ 
+
+
+.ico-leave {background:url("../images/icon/calendar.fw.png") no-repeat;}
+.ico-time {background:url("../images/icon/time.fw.png") no-repeat;}
+.ico-approve {background:url("../images/icon/approve.fw.png") no-repeat;}
+.ico-claim {background:url("../images/icon/claim.fw.png") no-repeat;}
+.ico-history {background:url("../images/icon/history.fw.png") no-repeat;}
+.ico-pending {background:url("../images/icon/pending.fw.png") no-repeat;}
+.ico-report {background:url("../images/icon/report.fw.png") no-repeat;}
+.ico-setting {background:url("../images/icon/setting.fw.png") no-repeat;}
+.ico-work {background:url("../images/icon/work.fw.png") no-repeat;}
+
+.ico-delete {background:url("../images/delete_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-save {background:url("../images/save_icon.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-edit {background:url("../images/edit_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-updown {background:url("../images/up_down.png") 10px 6px no-repeat; display:block;height: 14px; width: 14px;display:inline-block; padding-left:10px;}    /* Added from css@17/Dec/2013 */ 
+
+
+/*kahkin 18/10/2019 [TR00.080.329] some ess701 don't unclude hrmsnet in their path url, use .. to refer proper project path*/
+/*.ico-favourite {background:url("/hrmsnet/images/favourite.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-favourite:hover {background:url("/hrmsnet/images/favourite-hover.png") no-repeat; cursor:pointer;}
+.ico-favourite-added {background:url("/hrmsnet/images/favourite-hover.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px; } /*20140109 added for identifying favourite added*/
+/*.ico-favourite-added:hover { cursor:pointer; }
+.ico-printer {background:url("/hrmsnet/images/printer.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-printer:hover {background:url("/hrmsnet/images/printer-hover.png") no-repeat; cursor:pointer;}
+.ico-pdf {background:url("/hrmsnet/images/pdf.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-pdf:hover {background:url("/hrmsnet/images/pdf-hover.png") no-repeat; cursor:pointer;}
+.ico-docs {background:url("/hrmsnet/images/doc.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-docs:hover {background:url("/hrmsnet/images/doc-hover.png") no-repeat; cursor:pointer;}
+.ico-excel {background:url("/hrmsnet/images/excell.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-excel:hover {background:url("/hrmsnet/images/excell-hover.png") no-repeat; cursor:pointer;}*/
+
+.ico-favourite {background:url("../images/favourite.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-favourite:hover {background:url("../images/favourite-hover.png") no-repeat; cursor:pointer;}
+.ico-favourite-added {background:url("../images/favourite-hover.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px; } /*20140109 added for identifying favourite added*/
+.ico-favourite-added:hover { cursor:pointer; }
+.ico-printer {background:url("../images/printer.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-printer:hover {background:url("../images/printer-hover.png") no-repeat; cursor:pointer;}
+.ico-pdf {background:url("../images/pdf.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-pdf:hover {background:url("../images/pdf-hover.png") no-repeat; cursor:pointer;}
+.ico-docs {background:url("../images/doc.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-docs:hover {background:url("../images/doc-hover.png") no-repeat; cursor:pointer;}
+.ico-excel {background:url("../images/excell.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-excel:hover {background:url("../images/excell-hover.png") no-repeat; cursor:pointer;}
+/*end*/
+/* End Moved from bottom */
+
+#footer span#copyright {
+	padding-top:20px;
+	display:block; 
+	color:#BCBCBC;
+	font-size:10px;
+	text-align:right;
+    padding-right:20px;     /* Added from css@07/01/2014 */
+}
+
+/*** Container ***/
+
+.basic-container {width: 90%; margin:auto; height:90%;} /*changed to have wider width */
+.margin-base {margin-top:5%; margin-bottom:5%;}     /* Added from css@17/Dec/2013 */
+
+/*** End of Container ***/
+
+/*** Button ***/
+
+.btn-regular {
+	display:inline-block;
+	background:#036280; 
+	color:#FFF;
+	padding: 7px 8px 6px 8px; 
+	font-weight:bold; 
+    border-width: 0;
+    cursor: pointer;
+    margin-top: 5px;
+    font-size: 11px;
+	/*margin:0px 1% 0px 0px;*/
+}
+.btn-regular:hover {
+	cursor:pointer;
+	opacity:9;
+	background:#0B6884;
+}
+
+.btn-liteblue {
+	background:#59B9D1; 
+	color:#FFF;
+	padding:10px; 
+	display:inline-block;
+	font-weight:bold; 
+	/*margin:0px 1% 0px 0px;*/
+}
+
+/* Added from css@17/Dec/2013 */
+.btn-liteblue:hover {
+	cursor:pointer;
+	opacity:9;
+	background:#38B2D1;
+}
+/* End Added from css@17/Dec/2013 */
+
+.btn-home-liteblue {
+	background:#FFF; 
+	color:#59B9D1;
+	padding:10px; 
+	display:block;
+	font-weight:bold;
+}
+
+/* Added from css@17/Dec/2013 */
+.btn-grey {
+	background:#EAEDF4; 
+	color:#02617F;
+	padding:10px; 
+	display:inline-block;
+	font-weight:bold; 
+	width:50px;
+}
+
+.btn-regular-smaller {
+	background:#036280; 
+	color:#FFF;
+	padding:7px 10px; 
+	display:inline-block;
+	font-weight:bold; 
+	/*margin:0px 1% 0px 0px;*/
+}
+/* End Added from css@17/Dec/2013 */
+
+/*** End of Button ***/
+
+/*** Tables  ***/
+/* Added from css@17/Dec/2013 */
+.table-option-top {padding-top:10px;}
+.table-option-bottom {padding-bottom:10px;}
+/* End Added from css@17/Dec/2013 */
+
+.regular-table { border:0; width:100%; color:#404040;}  /* Added from css@17/Dec/2013 - color:#717F9C; */
+.regular-table th, .regular-table td {padding:5px 5px; border:1px solid #FFF;} /*change td to regular-table td to not affect other table columns and to have lesser padding in columns*/
+.regular-table thead tr, .regular-table thead tr td {background:#036280 !important;color:#FFF !important;}
+.regular-table tbody tr:nth-child(2n) { background:#EAEDF4;}
+.regular-table tbody tr:nth-child(2n+1) { background:#F1F2F7;}
+.regular-table td a { color: #1E0FCC; }
+.regular-table td a:hover { cursor: pointer; text-decoration: underline; }
+
+/* Added from css@17/Dec/2013 */
+.regular-table th {border:1px solid #FFF; padding:5px 5px; }
+
+/** Color **/
+.grey {color: #A3AEBE !important;}
+.white {color: #FFF !important;}
+.blue {color: #036280 !important;}
+.liteblue {color: #59B9D1 !important;}
+/* End Added from css@17/Dec/2013 */
+
+/*** End of Tables ***/
+
+.Listfavourites {margin:0;padding-bottom:20px;}     /* Added from css@17/Dec/2013 padding-bottom:20px; */
+.Listfavourites ul {list-style:none; margin-left:-40px;}
+.Listfavourites ul li { float:left; padding:15px 0px; background:#59B9D1; margin-right:1em; color:#FFF; width:102px; text-align:center; height:70px; border:1px solid #FFF; margin-top: 5px;} /*added margin-top to have spacing when screen is minimized*/
+.Listfavourites ul li:hover { background-color:#036280; cursor:pointer;}
+
+.link-regular.active, .link-regular:hover {color:#036280; cursor:pointer;}
+/* .link-regular {color:#99A4B7; font-size:16px; font-family:'gothambold'; margin-right:0px 10px; border-right:1px dotted #99A4B7; padding:0px 10px;}   */
+.link-regular {color:#99A4B7; font-size:16px; /*font-family:'gothambold';*/ margin-right:0px 10px; border-right:1px dotted #99A4B7; padding:0px 10px;}
+
+.favicon {width:36px; height:36px; margin:auto; margin-bottom:2px; display:block;}
+
+/* Moved to top
+.ico-leave {background:url("/hrmsnet/images/icon/calendar.fw.png") no-repeat;}
+.ico-time {background:url("/hrmsnet/images/icon/time.fw.png") no-repeat;}
+.ico-approve {background:url("/hrmsnet/images/icon/approve.fw.png") no-repeat;}
+.ico-claim {background:url("/hrmsnet/images/icon/claim.fw.png") no-repeat;}
+.ico-history {background:url("/hrmsnet/images/icon/history.fw.png") no-repeat;}
+.ico-pending {background:url("/hrmsnet/images/icon/pending.fw.png") no-repeat;}
+.ico-report {background:url("/hrmsnet/images/icon/report.fw.png") no-repeat;}
+.ico-setting {background:url("/hrmsnet/images/icon/setting.fw.png") no-repeat;}
+.ico-work {background:url("/hrmsnet/images/icon/work.fw.png") no-repeat;}
+*/
+
+.formlabel {font-size:12px; color:#404040; vertical-align:bottom; padding-top:12px; display: block;}     /* Modified padding-top: 10px from 6px */
+.formlabelred {font-size:12px; color:#ff0000; vertical-align:bottom; padding-top:6px; display: block;}     /* Modified padding-top: 10px from 6px */
+.formlabel-inline {color:#036280; vertical-align:bottom; display: block;padding-left:25%; padding-top:0px; font-size:12px !important;}
+.formlabel-ajax {font-size:12px; color:#036280; vertical-align:bottom;  display: block;}
+/* Added from css@17/Dec/2013 */
+.formlabel-radio {font-size:11px; color:#036280; vertical-align:bottom; display:inline-block; padding:10px 10px;}
+/* End Added from css@17/Dec/2013 */
+p.formlabel {float: none !important; padding-bottom: 0px !important; }
+td h2.formlabel { padding-top: 0px; padding-bottom: 0px; vertical-align: middle; margin: 2px; }
+
+.valuelabel {font-size:14px; color:#A6AFC0; vertical-align:bottom; padding-top:10px; display:block;}
+.valuelabel-inline {color:#A6AFC0; vertical-align:bottom; display:block;padding-left:25%; padding-top:0px; font-size:11px !important;}
+
+.spacer {padding-bottom: 5px;}
+.spacer-10 {padding-bottom:10px;}
+.spacer-5 {padding-bottom:5px;}
+
+.passwordpolicies, passwordpolicies li {list-style:circle; margin-left:-20px;}
+.MasterSetupBar {background-color:#036280;}
+.MasterSetupBar ul {list-style:none; margin-left:-40px;}
+.MasterSetupBar ul li {float:left;padding:20px; color:#FFF; border-right:1px solid #59B9D1; font-weight:bold;font-size:14px; }    /* Modified to removed font-family:'gothambold' */
+.MasterSetupBar ul li.active {background:#59B9D1;}
+.MasterSetupBar ul li:hover {cursor:pointer;background:#59B9D1;}
+
+.hidden {display: none;}
+.smaller {font-size: 80%;}
+
+/* Moved to top
+.ico-delete {background:url("/hrmsnet/images/delete_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-save {background:url("/hrmsnet/images/save_icon.png") no-repeat; display:block;height: 14px; width: 14px;}
+.ico-edit {background:url("/hrmsnet/images/edit_small.png") no-repeat; display:block;height: 14px; width: 14px;}
+
+.ico-favourite {background:url("/hrmsnet/images/favourite.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-favourite:hover {background:url("/hrmsnet/images/favourite-hover.png") no-repeat; cursor:pointer;}
+.ico-printer {background:url("/hrmsnet/images/printer.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-printer:hover {background:url("/hrmsnet/images/printer-hover.png") no-repeat; cursor:pointer;}
+.ico-pdf {background:url("/hrmsnet/images/pdf.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-pdf:hover {background:url("/hrmsnet/images/pdf-hover.png") no-repeat; cursor:pointer;}
+.ico-docs {background:url("/hrmsnet/images/doc.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-docs:hover {background:url("/hrmsnet/images/doc-hover.png") no-repeat; cursor:pointer;}
+.ico-excel {background:url("/hrmsnet/images/excell.png") no-repeat; display:inline-block;height: 26px; width: 26px; padding-left:5px;}
+.ico-excel:hover {background:url("/hrmsnet/images/excell-hover.png") no-repeat; cursor:pointer;}
+*/
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*.spn-add {display:inline-block; padding:5px 30px; background:url('/hrmsnet/images/add_small18x18.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-delete {display:inline-block; padding:5px 30px; background:url('/hrmsnet/images/delete_small18x18.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-approve {display:inline-block; padding:5px 30px; background:url('/hrmsnet/images/approve.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-reject {display:inline-block; padding:5px 30px; background:url('/hrmsnet/images/reject.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}*/
+.spn-add {display:inline-block; padding:5px 30px; background:url('../images/add_small18x18.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-delete {display:inline-block; padding:5px 30px; background:url('../images/delete_small18x18.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-approve {display:inline-block; padding:5px 30px; background:url('../images/approve.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+.spn-reject {display:inline-block; padding:5px 30px; background:url('../images/reject.png') 0px 5px no-repeat;color:#0B6884; font-size:14px; cursor: pointer;}
+
+
+.readonly {pointer-events: none; color:#D4EFF7;}
+.readonly .formlabel {color:#D4EFF7;}
+.readonly .vlad {opacity:0.7;}
+.readonly input[type="radio"] {opacity:0.5;}
+.readonly select {opacity:0.5;} /*created, to handle disabled item not provided originally*/
+.readonly input[type="text"] {opacity:0.5;} /*created, to handle disabled item not provided originally*/
+
+.ManageMasterSetup .formlabelmaster {color:#036280;background:#EAEDF4;border-color:#EAEDF4; }      /* Modified to removed font-family:'gothambold' */
+.ManageMasterSetup  .master-setting td { padding:10px 6px;}
+
+/* Added from css@17/Dec/2013 */
+/** Application **/
+.apps_block {background:#F7F8FC; padding:20px;}
+.apps_status {display:inline-block;color:#036280;font-size:14px;}
+.apps_arrow_base {margin:auto auto; padding-top:50px;padding-left:50px}
+.apps_title {/*font-family:'gothambold'*/}
+.apps_persons {/*font-family:gothamlight;*/font-size:12px;/*font-weight:bold;*/}
+.apps_detail_content {display:inline-block;color:#036280;font-size:14px;margin-top:10px;}
+
+/** General **/
+.zeropadding {padding:0px}
+.zeromargin {margin:0px;}
+.zeroul {list-style:none; margin-left:-40px;}
+.border-bottom-dotted {border-bottom:1px dotted #EAEAEA;}
+.border-top-dotted {border-top:1px dotted #EAEAEA;}
+.contentArea {padding-top:30px;padding-bottom:40px;}
+
+/** Container **/
+.caption-leave-table {margin-bottom:30px;}
+
+/** Flip Card Organisation **/
+.flip {
+	position: relative;
+	-webkit-perspective: 1000;
+	-moz-perspective: 1000;
+	-ms-perspective: 1000;
+	-o-perspective: 1000;
+	perspective: 1000;
+}
+.flip .flip-front, .flip .flip-back {
+	position: absolute;
+	top: 0;
+	left: 0;
+	-webkit-transform-style: preserve-3d;
+	-moz-transform-style: preserve-3d;
+	-ms-transform-style: preserve-3d;
+	-o-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	-webkit-backface-visibility: hidden;
+	-moz-backface-visibility: hidden;
+	-ms-backface-visibility: hidden;
+	-o-backface-visibility: hidden;
+	backface-visibility: hidden;
+	-webkit-transition: 0.75s;
+	-moz-transition: 0.75s;
+	-o-transition: 0.75s;
+	transition: 0.75s;
+
+}
+.flip .flip-front {
+	z-index: 5;
+}
+.flip .flip-back {
+	z-index: 0;
+	-webkit-transform: rotateY(-180deg);
+	-moz-transform: rotateY(-180deg);
+	-ms-transform: rotateY(-180deg);
+	-o-transform: rotateY(-180deg);
+	transform: rotateY(-180deg);
+}
+.flip:hover .flip-front {
+	z-index: 5;
+	-webkit-transform: rotateY(180deg);
+	-moz-transform: rotateY(180deg);
+	-ms-transform: rotateY(180deg);
+	-o-transform: rotateY(180deg);
+	transform: rotateY(180deg);
+}
+.flip:hover .flip-back {
+	z-index: 10;
+	-webkit-transform: rotateY(0deg);
+	-moz-transform: rotateY(0deg);
+	-ms-transform: rotateY(0deg);
+	-o-transform: rotateY(0deg);
+	transform: rotateY(0deg);
+}
+.flip:hover{cursor:pointer;}							
+.card {margin:0 auto; width:240px; height:120px; text-align:center;}
+.card.manager .flip-front .cover {padding:40px; background:#036280;margin:0 auto; width:160px; height:40px; border-radius:6px;vertical-align:middle; text-align:center;}
+.card.manager .flip-back .cover {padding:40px; background:#3096AF;margin:0 auto; width:160px; height:40px; border-radius:6px;vertical-align:middle; text-align:center;}
+.card .flip-front .cover {padding:40px; background:#3096AF;margin:0 auto; width:160px; height:40px; border-radius:6px;vertical-align:middle; text-align:center;}
+.card .flip-back .cover {padding:40px; background:#9CA4B7;margin:0 auto; width:160px; height:40px; border-radius:6px;vertical-align:middle; text-align:center;}
+.card .stucture-name {color:#FFF;font-size:20px;/*font-family:'gothambold';*/}
+.card .stucture-label {color:#FFF;}
+.card-arrow-base {padding:0px 40px;margin:0 auto; width:140px; height:133px; border-radius:6px;vertical-align:middle;}
+.card-dots {text-align:center; width:900px;height:6px; margin:0 auto; padding:0;background:url('../images/dots2.png') repeat-x;}
+
+/** Dashboard Setting **/
+.ManageFav .footer-note {padding-top:20px; color:#59B9D1}
+
+/** Profile **/
+#profile h1 {font-size:28px;/*font-family:'gothambook';*/}
+#profile h2 {font-size:18px;/*font-family:'gothambook';*/}
+#profile h4 {font-size:14px; color:#404040; vertical-align:bottom; padding-top:12px; display: block;}
+.toggleInfo { padding:1%; width:98%; background:#036280; color:#FFF; margin-bottom:2px; /*font-family:'gothambold';*/ font-size:14px;}
+.toggleInfo:hover {background:#0F6F8C;cursor:pointer;}
+.toggleContent {background:#F7F2F2; padding:1%; display:none;}
+.profileSidebar {margin-left:-40px;}
+.profileSidebar li {padding:4%; width:90%; background:#036280; color:#FFF; margin-bottom:1px; /*font-family:'gothambook';*/ font-size:14px;}
+.profileSidebar li:hover, .profileSidebar li.active {background:#59B9D1;cursor:pointer;}
+.profiletab {display:none; position:relative;}
+.profiletab:first-child {display:block;}
+#profile .portrate {
+	background-size: cover;
+    background-position: center;
+	height: 125px;
+	margin: 0 auto;
+	width: 125px;
+}
+
+/**wages-tab-entry**/
+#wages-tab-entry ul li {font-size:12px !important; padding: 0px 5px 5px 5px !important;}
+.wages-tab-entry {}
+.wages-tab-entry ul {list-style: none;margin-left: -55px;}
+.wages-tab-entry ul li {float: left;padding: 15px 15px;border-right: 1px dotted #EAEAEA; color: #B5B7C8;font-size: 14px; font-weight: bold;}
+.wages-tab-entry ul li.active, .wages-tab-entry ul li:hover {color: #036280;cursor: pointer;}
+
+
+/** Leave Application **/
+.requestor_bar_before {padding:10px 20px; background:#FFF;}
+.requestor_bar_after {padding:10px 20px; background:#59B9D1;}
+.requestor {}
+
+/** Module Menu Top **/
+.module-container {height:250px; width:100%; background:#036280; margin:auto; position:absolute;display:none;z-index:10;}
+.module-base {width:1280px; margin:0px auto; padding-top:40px;}
+.listModuleMenu {list-style:none;}
+.listModuleMenu li {float:left; width:140px; height:140px; border:1px solid #0B708E;margin-right:20px; color:#FFF; }
+.listModuleMenu li p {font-size:85%;padding-top:80px; padding-left:10px; padding-right:10px;}
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*.listModuleMenu li.payroll {background:url('/hrmsnet/images/modules/payroll.fw.png') 45px 20px #FF4546 no-repeat;}
+.listModuleMenu li.talent {background:url('/hrmsnet/images/modules/talentmanagement.fw.png') 45px 20px #92AA9D no-repeat;}
+.listModuleMenu li.attendance {background:url('/hrmsnet/images/modules/timeattendance.fw.png') 45px 20px #C5A5CC no-repeat;}
+.listModuleMenu li.employee {background:url('/hrmsnet/images/modules/employeeempowerment.fw.png') 45px 20px #59B9D1 no-repeat;}
+.listModuleMenu li.business {background:url('/hrmsnet/images/modules/businessanalytics.fw.png') 45px 20px #B0A1B4 no-repeat;}
+.listModuleMenu li.outsource {background:url('/hrmsnet/images/modules/outsourcing.fw.png') 45px 20px #74ACF6 no-repeat;}
+.listModuleMenu li.module7 {background:url('/hrmsnet/images/modules/outsourcing.fw.png') 45px 20px #8FD895 no-repeat;}*/
+.listModuleMenu li.payroll {background:url('../images/modules/payroll.fw.png') 45px 20px #FF4546 no-repeat;}
+.listModuleMenu li.talent {background:url('../images/modules/talentmanagement.fw.png') 45px 20px #92AA9D no-repeat;}
+.listModuleMenu li.attendance {background:url('../images/modules/timeattendance.fw.png') 45px 20px #C5A5CC no-repeat;}
+.listModuleMenu li.employee {background:url('../images/modules/employeeempowerment.fw.png') 45px 20px #59B9D1 no-repeat;}
+.listModuleMenu li.business {background:url('../images/modules/businessanalytics.fw.png') 45px 20px #B0A1B4 no-repeat;}
+.listModuleMenu li.outsource {background:url('../images/modules/outsourcing.fw.png') 45px 20px #74ACF6 no-repeat;}
+.listModuleMenu li.module7 {background:url('../images/modules/outsourcing.fw.png') 45px 20px #8FD895 no-repeat;}
+
+.listModuleMenu li:last-child {margin-right:0px;}
+/* End Added from css@17/Dec/2013 */
+
+/*start - own css created*/
+.label {
+    height: 30px;       /* Modified by Bryan@09/Jan/2014    For slimming from 38 to 20 */
+    display: table !important;
+    font-weight: bold !important;
+}
+
+.label .formlabel {
+    color:#036280 !important;
+}
+
+.label-value
+{
+    height: 30px;   /* Modified by Bryan@09/Jan/2014    For slimming from 38 to 20 */
+    display: table !important;
+}
+
+.label-value a:link, .formlabel a:link
+{
+    color: #1E0FCC !important;
+    text-decoration: none;
+}
+
+.label-value a:hover, .formlabel a:hover
+{
+    text-decoration: underline;
+}
+
+.label-value a:visited
+{
+    color: #036280 !important;
+    text-decoration: none;
+}
+
+.input-max-40 {
+    width: 178px;
+}
+
+.common-button {
+    padding-top: 25px;
+    width: 100%;
+    text-align:center;
+    display: block;
+}
+
+.seperator {
+	border-top:1px dotted #D8D8D8;
+    padding-top: 7px;
+    padding-bottom: 13px;
+}
+
+.table-header {
+    background:#036280 !important;
+    color:#FFF !important;
+    font-weight: bold;
+}
+
+.table-header a:link {
+    /*background:#036280 !important;*/
+    color:#FFF !important;
+}
+
+.clearspace {
+    clear: both;
+    padding: 5px;
+}
+
+.clsSearchHeader {
+    background: #F1F2F7 !important;
+    color: #036280 !important;
+    font-weight: bold;
+    padding: 5px 5px !important;    /* Changed by Bryan@30/Dec/2013     from 5,20 to 5,5*/
+    border: 1px solid #E5E5E5;
+}
+
+.tablecell-align-left {
+    text-align: left;
+}
+
+.tablecell-align-right {
+    text-align: right;
+}
+
+.header-userinfo {
+    color:#FFF; 
+    font-family:'gothambook'; 
+    font-size:9px;
+    display:block;
+    white-space: nowrap;
+}
+
+.regular-emptyrecord-table { border:0; width:100%;}
+.regular-emptyrecord-table th, .regular-emptyrecord-table td {padding:5px 5px;}       /* Changed by Bryan@30/Dec/2013     from 10,15 to 5,5*/
+.regular-emptyrecord-table thead tr, .regular-emptyrecord-table thead tr td {background:#036280 !important;color:#FFF !important;}
+.regular-emptyrecord-table tbody tr:nth-child(2n) { background:#EAEDF4;}
+.regular-emptyrecord-table tbody tr:nth-child(2n+1) { background:#F1F2F7;}
+
+
+.table-pager {
+    border: 1px solid #FFFFFF;
+}
+.table-pager table {
+    float: right;
+}
+.table-pager a:link {
+    font-weight: normal;
+}
+.table-pager td {
+    border: 0 none;
+    padding: 0px 0px;
+    background: #FFFFFF !important;
+    color: #036280 !important;
+    font-weight: bold;
+}
+
+.custom-drop-down {
+    background-color: #EAEDF4;
+    border: #59B9D1 1px solid;
+    display: none;
+    position: absolute;
+}
+
+.table-sort-non {
+    width: 16px;
+    height: 16px;
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+    /*background-image: url(/hrmsnet/css/custom/images/ui-icons_888888_256x240.png);*/
+    background-image: url(../css/custom/images/ui-icons_888888_256x240.png);
+    background-position: -126px 0px;
+    float: right;
+}
+
+.table-sort-asc {
+    width: 16px;
+    height: 16px;
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+    /*background-image: url(/hrmsnet/css/custom/images/ui-icons_888888_256x240.png);*/
+    background-image: url(../css/custom/images/ui-icons_888888_256x240.png);
+    background-position: 0px 0px;
+    float: right;
+}
+
+.table-sort-desc {
+    width: 16px;
+    height: 16px;
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+    /*background-image: url(/hrmsnet/css/custom/images/ui-icons_888888_256x240.png);*/
+    background-image: url(../css/custom/images/ui-icons_888888_256x240.png);
+    background-position: -64px 0px;
+    float: right;
+}
+
+.criteria-cover {
+    padding: 5px 0px 0px 0px;
+}
+
+.criteria-box {
+    background-color: #F4F6F9;
+    padding: 5px 2%;
+    width: 96%
+}
+
+.note-header {
+    padding-top:20px; 
+    color:#59B9D1
+}
+
+.note-box {
+    padding:20px 0px; 
+    border-top:1px dotted #EAEAEA;
+}
+
+.gear-menu-link {
+    padding: 0px 10px 10px 10px;
+}
+
+.header-text {
+    display: inline-block;
+    color: #036280;
+    font-size: 14px;
+    padding-right: 5%;
+}
+
+.row-highlight {
+    background-color: #F7F8FC;
+}
+
+.process-flow-header {
+    font-size: 11px;
+    color: #404040;
+    font-weight: bold;
+}
+
+.process-flow-owner {
+    font-size:11px;
+    color: #404040; 
+}
+
+.process-flow-datetime {
+    font-size:11px;
+    color:#A6AFC0;
+}
+
+.process-flow-highlight-approved {
+    border: 3px solid #22B14C;
+}
+
+.process-flow-highlight-rejected {
+    border: 3px solid #FF3232;
+}
+
+.process-flow-highlight-timeout {
+    border: 3px solid #FFC90E;
+}
+
+.process-flow-highlight-withdrawn {
+    border: 3px solid #02617F;
+}
+
+/*//Velu for Orisoft TR 00.065.035*/
+.process-flow-highlight-nextaction {
+    border: solid #000000;
+    border-width: 0px 3px 3px 3px;
+}
+
+.process-flow-highlight-nextaction-employee {
+    border: solid #000000;
+    border-width: 3px 3px 0px 3px;
+}
+/*//Velu for Orisoft TR 00.065.035*/
+
+.dashboard:hover {
+    cursor: pointer;
+}
+
+.dash-board {
+	position:absolute; 
+	display:none; 
+	background:#036280; 
+	z-index: 11;
+	padding-top: 15px;
+	padding-bottom: 25px;
+	width: 76%; 
+	padding-left:20px; 
+	padding-right:20px; 
+	border-radius:4px;
+	opacity:0.9;
+    top: 79px;
+}
+
+.sysmenu:hover {
+    cursor: pointer;
+}
+
+.sys-menu {
+    float: left;
+	position:absolute; 
+    background:#59B9D1; 
+	z-index: 11;
+	padding-top: 15px;
+	padding-bottom: 25px;
+	width: 76%; 
+	padding-left:20px; 
+	border-radius:4px;
+    top: 79px;
+}
+
+.sys-menu ul {
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+    /*list-style: url("/hrmsnet/images/pointer.png");*/
+    list-style: url("../images/pointer.png");
+    margin-left: -40px;
+    padding-bottom: 5px;
+}
+
+.sys-menu li {
+    padding-bottom: 5px;
+}
+
+.sys-menu div.sub-menu { 
+    float: left;
+    padding-right: 20px;
+    padding-bottom: 5px;
+    display: inline;
+    width: 100%;
+}
+
+.sys-menu h2 {
+    font-size: 10pt;
+}
+
+.sys-menu a {
+    font-size: 9pt;
+    color: #2A2A2A;
+}
+
+.sys-menu a:hover {
+    color: #F20000;
+}
+
+.sys-menu .col {
+    padding-left: 20px;
+    padding-right: 20px;
+    display: block;
+    width: 20%;
+    float: left;
+}
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*.ico-1 {background:url("/hrmsnet/images/icon/application_form.png") no-repeat;}
+.ico-2 {background:url("/hrmsnet/images/icon/cancellation.png") no-repeat;}
+.ico-3 {background:url("/hrmsnet/images/icon/enquiries_listing.png") no-repeat;}
+.ico-4 {background:url("/hrmsnet/images/icon/reports.png") no-repeat;}
+.ico-5 {background:url("/hrmsnet/images/icon/analysis_charting.png") no-repeat;}
+.ico-6 {background:url("/hrmsnet/images/icon/audit_trails.png") no-repeat;}
+.ico-7 {background:url("/hrmsnet/images/icon/chart.png") no-repeat;}
+.ico-8 {background:url("/hrmsnet/images/icon/transaction_entry.png") no-repeat;}
+.ico-9 {background:url("/hrmsnet/images/icon/process.png") no-repeat;}
+.ico-10 {background:url("/hrmsnet/images/icon/setup.png") no-repeat;}
+.ico-11 {background:url("/hrmsnet/images/icon/profile_setup.png") no-repeat;}
+.ico-12 {background:url("/hrmsnet/images/icon/security.png") no-repeat;}*/
+.ico-1 {background:url("../images/icon/application_form.png") no-repeat;}
+.ico-2 {background:url("../images/icon/cancellation.png") no-repeat;}
+.ico-3 {background:url("../images/icon/enquiries_listing.png") no-repeat;}
+.ico-4 {background:url("../images/icon/reports.png") no-repeat;}
+.ico-5 {background:url("../images/icon/analysis_charting.png") no-repeat;}
+.ico-6 {background:url("../images/icon/audit_trails.png") no-repeat;}
+.ico-7 {background:url("../images/icon/chart.png") no-repeat;}
+.ico-8 {background:url("../images/icon/transaction_entry.png") no-repeat;}
+.ico-9 {background:url("../images/icon/process.png") no-repeat;}
+.ico-10 {background:url("../images/icon/setup.png") no-repeat;}
+.ico-11 {background:url("../images/icon/profile_setup.png") no-repeat;}
+.ico-12 {background:url("../images/icon/security.png") no-repeat;}
+
+
+.clsSelected {
+    background-color: #3399FF;
+}
+
+.clsBookmark {
+    color: #FFF;
+    font-weight: bold;
+}
+
+.header-icon {
+    padding: 0px 2px 0px 20px;
+    position: relative;
+    top: 50%;
+}
+
+.header-icon-container {
+    height: 76px;
+}
+
+.ui-autocomplete {
+    height: 78px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-color: #59B9D1;
+    border-radius: 0px;
+}
+        
+ul.ui-widget-content {
+    background: #EAEDF4;
+}
+
+#customError{
+    position:relative;
+    /*height:244px;*/
+    height:auto;
+    width: auto;
+    background:#59B9D1;
+    border:0px none #cecece;
+    z-index:2;
+    padding:12px;
+    font-size:14px;
+}
+
+#customError h1{
+    text-align:left;
+    color:#FFF;
+    font-size:22px;
+    font-weight:700;
+    border-bottom:0px dotted #D3D3D3;
+    padding-bottom:2px;
+    margin-bottom:20px;
+								
+}
+
+#customError p{
+    color:#FFF;
+}
+
+#customError p.spacer{
+    padding:0px 40px 0px 60px;
+    padding-bottom:100px;
+    border-bottom:1px solid #7DCCE0;
+    padding-top:10px;
+}
+
+#customError .error-info {
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+	/*background:url('/hrmsnet/images/error-info.png') 0px 0px no-repeat;*/
+	background:url('../images/error-info.png') 0px 0px no-repeat;
+}
+
+#customError .error-bang {
+    /*kahkin 17/3/2021 [UHCMS-18]*/
+	/*background:url('/hrmsnet/images/error-bang.png') 0px 0px no-repeat;*/
+	background:url('../images/error-bang.png') 0px 0px no-repeat;
+}
+
+.screen-center {
+    display: table;
+    width: 80%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.deleteFav {
+    display: none;
+    position: absolute;
+    margin-top: -55px;
+    margin-left: 80px;
+}
+
+.sitemap {
+    color: #A3AEBE !important;
+    padding-right: 5px;
+}
+
+.dashboard-title {
+    padding: 5px 3px;
+    background-color: #59B9D1;
+    color: #FFF;
+    font-size: 100%;
+    font-weight: bold;
+}
+
+.calendar-legend-wrap{
+    margin: 15px 10px;
+    float: right;
+}
+.calendar-options-wrap{
+    margin: 15px 10px;
+    float: left;
+}
+.calendar-legend{
+    display: inline-block;    
+    margin: 9px 7px;
+}
+.calendar-vacation, .calendar-sickness, .calendar-maternity, .calendar-holiday{
+    position: relative;
+    display: inline-block;
+    top: 3px;
+    width: 10px;
+    height: 10px;
+}
+.calendar-vacation {
+    background-color: #02617F;
+    color: #FFF;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.calendar-sickness {
+    background-color: #EE333E;
+    color: #FFF;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.calendar-maternity {
+    background-color: #FFC90E;
+    color: #FFF;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.calendar-holiday {
+    background-color: #A889B1;
+    color: #FFF;
+    margin-right: 7px;
+    font-weight: bold;
+}
+
+.form-full {
+    width: 100%;
+}
+
+.dashboard-frame {
+    border: 3px solid #59B9D1;
+}
+
+.dashboard-content {
+    padding: 20px 15px 15px 35px;
+}
+
+.dashboard-table th, .dashboard-table td {
+    border: 0px none;
+}
+
+.dashboard-table a {
+    color: #1E0FCC;
+}
+
+.dashboard-table a:hover {
+    cursor: pointer; text-decoration: underline;
+}
+
+.dashboard-popuptable {
+    padding: 4% 4% 4% 4%;
+    background-color:white;
+    
+}
+
+.dashboard-popuptable th{
+    color: #59B9D1;
+    font-weight: bold;
+    text-align:left
+}
+
+.dashboard-popuptable a:hover{
+    text-decoration: underline;
+}
+
+.clsInfoIcon {
+    float: left;
+    padding: 11px 5px 0px 5px;
+}
+
+.form-sub-title {
+    padding: 0px 0px 5px 10px;
+    background-color: #59B9D1;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-sub-title-text {
+    padding-top: 5px;
+}
+
+.form-sub-title-toggle-icon {
+    padding: 4px 10px 0px 0px; 
+}
+
+.toggleDiv {
+    margin-top: -10px;
+}
+
+.form-content {
+    margin-left: 25px
+}
+
+.compulsary-header {
+    margin-top: 7px;
+}
+
+.regular-table-edit { border:0; width:100%; color:#404040;}
+.regular-table-edit thead tr td {padding:5px 5px; border:1px solid #FFF;} 
+.regular-table-edit tbody tr td {padding:0px 5px; border:1px solid #FFF;}
+.regular-table-edit thead tr, .regular-table-edit thead tr td {background:#036280 !important;color:#FFF !important; font-weight: bold;}
+.regular-table-edit tfoot tr td {padding:5px 5px; border-top:1px solid #FFF;} 
+.regular-table-edit tfoot tr, .regular-table-edit tfoot tr td {background:#EAEDF4 !important;color:#000 !important; font-weight: bold;}
+.regular-table-edit tbody tr:nth-child(2n) { background:#EAEDF4;}
+.regular-table-edit tbody tr:nth-child(2n+1) { background:#F1F2F7;}
+.regular-table-edit td a { color: #1E0FCC; }
+.regular-table-edit td a:hover { cursor: pointer; text-decoration: underline; }
+    .regular-table-edit .common-row {
+        background: #EAEDF4 !important;
+    }
+    .regular-table-edit .alternate-row {
+        background: #F1F2F7 !important;
+    }
+
+.form-wrap .regular-table-edit .frmOriText {
+    margin: 0px;
+    padding: 0px !important;
+    background-color: transparent;
+    font-size: 12px;
+    width: 100% !important;
+}
+
+.form-wrap .regular-table-edit .frmOriText::-ms-clear {
+    display: none;
+}
+
+.form-wrap .regular-table-edit .frmOriText100::-ms-clear {
+    display: none;
+}
+
+.form-wrap .regular-table-edit .frmOriSelect {
+    margin: 0px;
+    padding: 5px 0px !important;
+    background-color: transparent;
+    font-size: 12px;
+    width: 100% !important;
+}
+
+.redfont {color:#ff0000;}
+.greyfont {color:#808080;}
+.brownfont {color:#FFEAD5;} /*added by Pam on 13/06/2016 for TR 00.046.181*/
+
+.formlabelred {font-size:12px; color:#ff0000; vertical-align:bottom; padding-top:6px; display: block;}     /* Modified padding-top: 10px from 6px */
+.formlabelgreen {font-size:12px; color:#008000; vertical-align:bottom; padding-top:6px; display: block;}     /* Modified padding-top: 10px from 6px */
+.formlabelblue {font-size:12px; color:#036280; vertical-align:bottom; padding-top:12px; display: block;}     /* Modified padding-top: 10px from 6px */
+.formlabelgrey {font-size:12px; color:#808080; vertical-align:bottom; padding-top:12px; display: block;}     /* Modified padding-top: 10px from 6px */
+
+.divButton{
+	display:block;
+	border-style:solid;
+	border-color:#bbb #888 #666 #aaa;
+	border-width:1px 2px 2px 1px;
+    cursor: default;
+}
+.divButton:hover{
+	border-color: #666 #aaa #bbb #888;
+	border-width:2px 1px 1px 2px;
+    cursor: pointer;
+}
+
+
+.sixty {
+    width: 58%;
+    padding-right: 2%;
+}
+
+.fourty {
+    width: 38%;
+    padding-right: 2%;
+}
+
+.schedulesixty {
+    width: 57%;
+    padding-right: 1%;
+}
+
+.schedulefourty {
+    width: 42%;
+    padding-right: 0%;
+}
+
+.calendar-title {
+    color: #036280;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 17px;
+    width: 48%;
+}
+
+.calendar-tab-entry ul {
+    list-style: none;
+    margin-left: -55px;
+}
+.calendar-tab-entry ul li {
+    float: left;
+    padding: 9px 15px;
+    border-right: 1px dotted #EAEAEA;
+    color: #B5B7C8;
+    font-size: 12px;
+    font-weight: bold;
+}
+.calendar-tab-entry ul li.active, .wages-tab-entry ul li:hover {
+    color: #036280;
+    cursor: pointer;
+}
+
+.regular-table-calendar {
+    border: 0;
+    width: 100%;
+    border: 2px solid #A6A6A6;
+}
+.regular-table-calendar thead tr {
+    outline: 1px solid #A6A6A6;
+}
+.regular-table-calendar thead tr td {
+    padding: 5px 0px;
+    border-left: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    background-color: #F1F2F7;
+    font-size: 12px;
+    color: #036280;
+    text-align: center;
+    font-weight: bold;
+}
+.regular-table-calendar thead tr td:nth-child(1) {
+    text-align: left;
+    border-right: 2px solid #A6A6A6;
+}
+.regular-table-calendar tbody tr {
+    outline: 1px solid #A6A6A6;
+}
+.regular-table-calendar tbody tr td {
+    padding: 0px 0px;
+    border-left: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    font-size: 11px;
+    text-align: center;
+}
+.regular-table-calendar tbody tr td:nth-child(1) {
+    text-align: left;
+    border-right: 2px solid #A6A6A6;
+    vertical-align: top;
+}
+.regular-table-calendar tbody tr td div.container {
+    width: 100% !important;
+    height: 40px;
+}
+.regular-table-calendar tbody tr td div.container div {
+    width: 100%;
+    font-size: 9px;
+    position: relative;
+}
+.regular-table-calendar tbody tr td div.container div:nth-child(1) {
+    border-bottom: 2px solid #F0F0F0;
+    padding: 7px 0px;
+}
+.regular-table-calendar tbody tr td div.container div:nth-child(2) {
+    padding: 1px 0px;
+}
+.regular-table-calendar tbody tr td div.container div.cover {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+}
+.regular-table-calendar thead tr td.weekend {
+    color: #FFFFFF !important;
+    background-color: #9966FF !important;
+}
+.regular-table-calendar tbody tr td.weekend div.container {
+    /*color: #FFFFFF !important;*/
+    background-color: #9966FF !important;
+}
+.regular-table-calendar thead tr td.holiday {
+    color: #FF0000 !important;
+}
+.regular-table-calendar thead tr td.today {
+    border-left: 2px solid #FF0000;
+    border-right: 2px solid #FF0000;
+    border-top: 2px solid #FF0000;
+}
+.regular-table-calendar tbody tr td.today {
+    border-left: 2px solid #FF0000;
+    border-right: 2px solid #FF0000;
+}
+/*.regular-table-calendar tbody tr:first-child td.today {
+    border-top: 2px solid #FF0000;
+}*/
+.regular-table-calendar tbody tr:last-child td.today {
+    border-bottom: 2px solid #FF0000;
+}
+.regular-table-calendar tbody tr td.dtl {
+    cursor: pointer;
+}
+.regular-table-calendar tbody tr td.dtl.disabled div.container {
+    background-color: #D9D9D9 !important;
+}
+.regular-table-calendar tbody tr td.dtl.ui-selecting div div.cover {
+    background-color: #328EFD !important;
+    opacity: 0.2;
+}
+.regular-table-calendar tbody tr td.dtl.ui-selected div div.cover {
+    background-color: #328EFD !important;
+    opacity: 0.5;
+}
+.regular-table-calendar tbody tr td.dtl div div.cover.changed {
+    background: -webkit-repeating-linear-gradient(135deg, transparent, #A6A6A6 3%, #FFF 2%, transparent 15%);
+    background: repeating-linear-gradient(135deg, transparent, #A6A6A6 3%, #FFF 2%, transparent 15%);
+    opacity: 0.5;
+}
+
+/* new attendance-table-calendar */
+.attendance-calendar-title {
+    color: #036280;
+    font-size: 16px;
+    font-weight: bold;
+    padding-top: 17px;
+    width: 52%;
+}
+
+.attendance-table-calendar {
+    border: 0;
+    width: 100%;
+    border: 2px solid #A6A6A6;
+}
+.attendance-table-calendar thead tr {
+    outline: 1px solid #A6A6A6;
+}
+.attendance-table-calendar thead tr td {
+    padding: 5px 0px;
+    border-left: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    background-color: #F1F2F7;
+    font-size: 12px;
+    color: #036280;
+    text-align: center;
+    font-weight: bold;
+}
+.attendance-table-calendar tbody tr {
+    outline: 1px solid #A6A6A6;
+}
+.attendance-table-calendar tbody tr td {
+    padding: 0px 0px;
+    border-left: 1px solid #F0F0F0;
+    border-right: 1px solid #F0F0F0;
+    border-top: 1px solid #FFF;
+    border-bottom: 1px solid #FFF;
+    font-size: 11px;
+    text-align: center;
+}
+.attendance-table-calendar tbody tr td div.container div {
+    width: 100%;
+    font-size: 11px;
+    position: relative;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+/*added by Pam on 19/06/2016 for TR 00.048.029*/
+.attendance-table-calendar tbody tr td div.container div.present {
+    background-color: #00FA9A;
+}
+.attendance-table-calendar tbody tr td div.container div.early-out {
+    background-color: #A6CAF0;
+}
+.attendance-table-calendar tbody tr td div.container div.late-in {
+    background-color: #FF33CC;
+}
+.attendance-table-calendar tbody tr td div.container div.off-day {
+    background-color: #708090;
+}
+.attendance-table-calendar tbody tr td div.container div.work-day-off {
+    background-color: #FA8072;
+}
+.attendance-table-calendar tbody tr td div.container div.absence {
+    background-color: #FF0000;
+}
+.attendance-table-calendar tbody tr td div.container div.leave {
+    background-color: #CC9900;
+}
+.attendance-table-calendar tbody tr td div.container div.holiday {
+    background-color: #9966FF;
+}
+.attendance-table-calendar tbody tr td div.container div.irregularity {
+    background-color: #FFFF00;
+}
+/*ended by Pam on 19/06/2016 for TR 00.048.029*/
+.attendance-table-calendar thead tr td.weekend {
+    color: #FFFFFF !important;
+    background-color: #9966FF !important;
+}
+.attendance-table-calendar thead tr td.holiday {
+    color: #FF0000 !important;
+}
+.attendance-table-calendar thead tr td.today {
+    border-left: 2px solid #FF0000;
+    border-right: 2px solid #FF0000;
+    border-top: 2px solid #FF0000;
+}
+.attendance-table-calendar tbody tr td.today {
+    border-left: 2px solid #FF0000;
+    border-right: 2px solid #FF0000;
+}
+.attendance-table-calendar tbody tr:last-child td.today {
+    border-bottom: 2px solid #FF0000;
+}
+.attendance-table-calendar tbody a{
+    color: #000000;
+}
+/*added by Pam on 19/06/2016 for TR 00.048.029*/
+#divCriteria .criteria-mngr {
+    width: 65%;
+}
+#divCriteria .criteria-mngr .label-mngr {
+    width: 35%;
+}
+#divCriteria .legend-mngr {
+    width: 35%;
+}
+.legend-mngr .LegendBox {
+    border: 1px solid #404040;
+    font-size: 10px;
+    height: 28px;
+    margin: 5px;
+    padding: 5px;
+    text-align: center;
+    width: 53px;
+}
+.legend-mngr .work-legend {
+    background-color: #00FA9A;/*#03FE03*/
+}
+.legend-mngr .off-legend {
+    background-color: #708090;/*#C0C0C0*/
+}
+.legend-mngr .work-off-legend {
+    background-color: #FA8072;
+}
+.legend-mngr .abs-legend {
+    background-color: #FF0000;
+}
+.legend-mngr .late-legend {
+    background-color: #FF33CC;
+}
+.legend-mngr .early-legend {
+    background-color: #A6CAF0;
+}
+.legend-mngr .leave-legend {
+    background-color: #CC9900;
+}
+.legend-mngr .holiday-legend {
+    background-color: #9966FF;
+}
+.legend-mngr .irregularity-legend {
+    background-color: #FFFF00;
+}
+#totalAttd {
+    float: left;
+    margin-top: 20px;
+}
+#totalAttd .totalHeader {
+    float: left;
+    font-weight: 800;
+    margin-right: 30px;
+    padding: 5px;
+}
+#totalAttd .totalWorkDay {
+    background-color: #00fa9a;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalWorkOffDay {
+    background-color: #fa8072;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalOffDay {
+    background-color: #708090;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalLeaveDay {
+    background-color: #cc9900;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalHolidayDay {
+    background-color: #9966ff;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalAbsenceDay {
+    background-color: #ff0000;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalLate {
+    background-color: #ff33cc;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalEarly {
+    background-color: #a6caf0;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalAttd .totalIrregularity {
+    background-color: #ffff00;
+    border: 1px solid #000;
+    padding: 5px;
+    text-align: center;
+    margin-right: 10px;
+    float: left;
+}
+#totalEmp {
+    float: right;
+    margin-right: 10px;
+    margin-top: 20px;    
+    font-weight: 800;
+    color: #000;
+}
+#totalEmp span {
+    margin-right: 20px;
+}
+#totalEmp .empTotal{
+    float: right;
+}
+#totalAttd a {
+    color: #000;
+}
+/*ended by Pam on 19/06/2016 for TR 00.048.029*/
+/* new attendance-table-calendar */
+
+span.disclaimer {
+    font-size:11px; 
+    font-weight: normal;
+    color: red !important; 
+    vertical-align:bottom; 
+    padding-top:12px; 
+    display: block;
+}
+
+.employeelookup:hover, .toggle:hover {
+    cursor:pointer;
+}
+/*end - own css created*/
+
+/* CSS for the content of page. I am giving top and bottom padding of 80px to make sure the header and footer do not overlap the content.*/
+.scroller { /*overflow:auto; height:740px !important;*/ }
+html{overflow:auto;}
+.login-panel {width:23%; padding-left:2%; padding-right:25%;}
+.tiles {padding:20px 0px;}
+.tiles-even {padding:4px 20px;}
+.profile-name-mobile {display:none;}
+
+@media screen and (min-width: 768px) and (max-width: 1023px) { 
+	.login-panel {width:auto !important; padding-right:0 !important;}
+}
+
+@media screen and (max-width: 767px) {
+	.login-panel {width:auto !important; padding-right:0 !important;}
+}
+
+@media screen and (max-width: 640px) {
+	.login-learn {display:none !important;}
+	.profile-name {display:none;}
+	.company-logo {width:100%;}
+	.tiles-even {padding:4px 10px;}
+	.gear-menu {margin-left:-265px;}
+	.profile-name-mobile {display:block;}
+	.company-logo-tile {margin-right:0px;padding-right:0px; margin-top:5px;}
+	.tiles-even img {width:100%;}
+	.tiles img {width:100%;}
+	.regular-table {width:100% !important;}
+	.regular-table th {
+		border: 1px solid #FFFFFF;
+		padding: 4px 3.5px;
+	}
+	.regular-table th, .regular-table td {
+		border: 1px solid #FFFFFF;
+		padding: 4px 3.5px;
+		text-align: center;
+	}
+	.leftLogo {width:94px}
+	
+	.Listfavourites {margin:0;padding-bottom:0px;}
+	.Listfavourites ul {list-style:none; margin-left:-40px;}
+	.Listfavourites ul li { background:#59B9D1; color:#FFF;text-align:left; display:block; padding:1em;margin:0; margin-bottom:0.5em; float:none; height:auto; width:auto; border-radius:2px;}
+	.Listfavourites ul li:hover { background-color:#036280; cursor:pointer;}
+	.link-regular.active, .link-regular:hover {color:#036280; cursor:pointer;}
+	.link-regular {color:#99A4B7; font-size:16px; margin-right:0px 10px; border-right:1px dotted #99A4B7; padding:0px 10px;}
+	.favicon {width:36px; height:36px; margin:auto; margin-bottom:2px; display:inline-block; display:none;}
+	.favText {display:block;  font-size:1.4em;}
+	.checkFav {
+		display: none;
+		margin-left: 0px !important;
+		margin-top: 0px !important;
+		position: absolute;
+		right:20px;
+	}
+	.createDocs {}
+	.createDocs .half { float:none; width:auto !important;}
+	#AddDocs {}
+	#AddDocs .full {width:auto;}
+	#AddDocs .requestor_bar_before { padding:1% 2%;}
+	#AddDocs .requestor_bar_before .spn-add {}
+	.openSlide {display:none !important;}
+	.contentArea {padding-top:0;padding-bottom:0;}
+	
+	.LeaveTable .half { float:none; width:auto !important;}
+	.SeachForms .half { float:none; width:auto !important;}
+	.wages-tab-entry ul li {font-size:12px !important; padding:5px !important;}
+	.MasterSetup .half { float:none; width:auto !important;}
+	.MasterSetupBar ul li {float:none; display:block;padding:10px;border-bottom:1px solid #13728E ;}
+	h2 {font-size:12px;}
+	h2 .btn-grey {width:auto !important;}
+	h2 .btn-regular {padding:10px 5px !important;}
+	.LeaveApprove .half { float:none; width:auto !important;}
+	.listOfAttachments {display:none;}
+	.ManageMasterSetup .half { float:none; width:auto !important;}
+	.PasswordForm  .half  { float:none; width:auto !important;}
+	.profile_personal .half { float:none; width:auto !important;}
+	.profileLeft {float:none; width:auto !important;} 
+	.profileRight {float:none; width:auto !important;}
+	.tabulateGraff .left {float:none; width:auto !important;}
+	.approveSequence .block_1_3.left {float:none; width:auto !important;}
+	.apps_arrow_base {display:none;}
+    .header-login-profile {
+        float: left;
+        clear: both;
+        border-right: 0px none !important;
+        border-left: 0px none !important;
+        padding: 0px 0px 10px 0px;
+        margin-top: -15px;
+    }
+    .header-quick-link {
+        border-right: 0px none !important;
+        border-left: 0px none !important;
+    }
+    .deleteFav {
+        display: none !important;
+    }
+}
+
+/* 
+    Kevin 09/02/2015. Moved out of media query to apply to all screen widths. 
+    For issue where table does not scroll horizontally if screen larger than 1350px 
+*/
+.form-wrap-table-container {
+    overflow-x: auto;
+}
+
+@media screen and (min-width: 120px) and (max-width:1350px) {
+
+    .sixtyfive {
+        float: none;
+        width: 100%;
+    }
+
+    .thirtyfive {
+        float: none;
+        width: 100%;
+    }
+}
+
+@media screen and (device-width: 120px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {
+    .login-learn {display:none !important;}
+	.login-panel {width:auto !important;}
+    .profile-name {display:none;}
+	.company-logo {width:100%;}
+	.tiles-even {padding:4px 10px;}
+	.gear-menu {margin-left:-300px;}
+	.profile-name-mobile {display:block;}
+	.company-logo-tile {margin-right:0px;padding-right:0px; margin-top:5px;}
+	.tiles-even img {width:100%;}
+	.tiles img {width:100%;}
+	.regular-table {width:100% !important;}
+}
+
+@media screen and (min-width: 120px) and (max-width:800px) {
+    .login-learn {display:none !important;}
+	.login-panel {width:auto !important;}
+	.profile-name {display:none;}
+	.company-logo {width:100%;}
+	.tiles-even {padding:4px 10px;}
+	.gear-menu {margin-left:-300px;}
+	.profile-name-mobile {display:block;}
+	.company-logo-tile {margin-right:0px;padding-right:0px; margin-top:5px;}
+	.tiles-even img {width:100%;}
+	.tiles img {width:100%;}
+	.regular-table {width:100% !important;}
+	/*
+	#leaveDesktop {display:none;}
+	#leaveMobile {display:block;}
+	*/
+	.items {padding:10px; color:#717F9C;border:1px solid #FFF;}
+	.items.even {background:#F1F2F7;}
+	.items.odd {background:#EAEDF4;}
+	.items p {margin:0; padding:0; line-height:12px;padding-left:10px;}
+	.items p span.type, .items p span.value {width:50%;display:inline-block;}
+	.items p.title {font-weight:bold; font-size:14px; background:#036280;margin:0px;padding:10px 10px; color:#FFF;} 
+	.items p.last {border-bottom:0px solid #E5e5e5; }
+	.table-container {overflow-x: scroll;}
+	.table-wrap .half { float:none; width:auto !important;}
+    .form-wrap .quart { width:48% !important;}
+    .form-wrap .quart.autowidth { width:100% !important;}
+    .form-wrap .quart.profileLeft { width: auto !important;}
+    .form-wrap .half { float:none; width: 98% !important;}
+    .form-wrap .tri { float:none; width: 98% !important;}
+    .form-wrap .wrap-spacer {
+        padding-bottom: 6px !important;
+        display: table !important;
+    }
+    .label {
+        height: auto;
+    }
+    .form-wrap .spacer {
+        padding-bottom: 0px;
+    }
+    .form-wrap .formlabel {
+        padding-top: 6px !important;
+        padding-bottom: 0px !important;
+    }
+    .form-wrap .clsInfoIcon {
+        float: left;
+        padding-top: 5px;
+    }
+    .sys-menu .col {
+        width: auto;
+    }
+    .dashboard-large {
+        display: none;
+    }
+}
+
+
+
+/* Added by Bryan@24/12/2013    for slimming*/
+/* #### CSS that's applied when the viewing area's width is 765px or less #### */
+/*
+ @media screen and (max-width: 320px){
+	
+    .logohcms {width:100%; padding-right:0%;} 	
+    .logohcmspad {padding-top:15px;} 
+
+ }
+
+@media (min-width: 320px) and (max-width: 1600px){
+	
+    .logohcms {}
+    .logohcmspad {}
+
+ }
+ 
+*/
+
+/* End Added by Bryan@24/12/2013    for slimming*/
+
+.calSubordCheckbox
+{
+    margin: 6px 10px 0 0;
+    display: inline-block;
+}
+.calSubordCheckbox input
+{
+    top: 2px;
+    position: relative;
+}
+
+#divCalendar button.fc-state-disabled
+{
+    color: #036280;
+    opacity: 1;
+}
+
+#divCalendar .fc-month-view td.fc-day
+{
+    cursor: pointer;
+}
+
+#divCalendar .fc-month-view .fc-content-skeleton
+{
+    cursor: pointer;
+}
+
+#divCalendar .fc-event
+{
+    /*cursor: pointer;*/
+}
+#divCalendar .fc-state-default
+{
+    border: 0;
+    background-color: white;
+    box-shadow: none;
+    text-shadow: none;
+    background-image: none;
+    color: #b5b7c8;
+    font-weight: bold;
+}
+#divCalendar .fc-state-down, .fc-state-active
+{
+    box-shadow: none;
+    text-shadow: none;
+}
+#divCalendar .fc-toolbar .fc-button
+{
+    text-transform: uppercase;
+}
+
+#divCalendar .fc-state-hover, #divCalendar .fc-state-down, #divCalendar .fc-state-active, #divCalendar .fc-state-disabled {
+    
+    color: #02617f;
+    font-weight: bold;
+}
+
+div.fc-center h2
+{
+    font-family: 'gothambold';
+    font-size: 18px;
+    margin-top: 0;
+    white-space: nowrap;
+}
+
+#divCalendar .fc-month-view th {
+    color: #02617f;
+    padding: 20px 0;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#divCalendar .fc-month-view .fc-title
+{
+    cursor: pointer;
+}
+
+
+
+/* **********************Modification starts here********************** */
+/*Code Added by Velu for e-Attendance mock up screen on 05-08-2014*/
+form .frmAttIndicator {
+	height: 20px;
+	width:27%  !important;
+	border:0;
+    font-size:11px;
+}
+/* **********************Modification starts here********************** */
+
+
+
+/* **********************Modification starts here********************** */
+/*Code Added by Velu for e-Attendance table header freeze on 05-08-2014*/
+
+/* define height and width of scrollable area. Add 16px to width for scrollbar          */
+
+.tableContainer { border:0; width:100%; color:#404040;}
+.tableContainer thead tr td {padding:5px 5px; border:1px solid #FFF;} 
+.tableContainer thead tr, .tableContainer thead tr td {background:#036280 !important;color:#FFF !important; font-weight: bold;}
+.tableContainer tbody tr td {padding:0px 5px; border:1px solid #FFF;}
+.tableContainer tbody tr:nth-child(2n) { background:#EAEDF4;}
+.tableContainer tbody tr:nth-child(2n+1) { background:#F1F2F7;}
+.tableContainer td a { color: #1E0FCC; }
+.tableContainer td a:hover { cursor: pointer; text-decoration: underline; }
+    .tableContainer .common-row {
+        background: #EAEDF4 !important;
+    }
+    .tableContainer .alternate-row {
+        background: #F1F2F7 !important;
+    }
+
+div.tableContainer {
+    clear: both;
+    border: 1px solid #963;
+    height: 285px;
+    overflow: auto;
+    /*width: 1100px*/
+}
+
+/* Reset overflow value to hidden for all non-IE browsers.  */
+html>body div.tableContainer {
+    overflow: hidden;
+    /*width: 1100px */
+}
+
+/* define width of table. IE browsers only                 
+div.tableContainer table {
+    float: left;
+    /*width: 1100px
+}
+
+/* define width of table. Add 16px to width for scrollbar.           
+/* All other non-IE browsers.                                        
+html>body div.tableContainer table {
+    /*width: 1100px
+}*/
+
+/* set table header to a fixed position. WinIE 6.x only                                       */
+/* In WinIE 6.x, any element with a position property set to relative and is a child of       */
+/* an element that has an overflow property set, the relative value translates into fixed.    */
+/* Ex: parent element DIV with a class of tableContainer has an overflow property set to auto */
+thead.fixedHeader tr {
+    position: relative
+}
+
+/* set THEAD element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+html>body thead.fixedHeader tr {
+    display: block
+}
+
+/* make the TH elements pretty */
+thead.fixedHeader th {
+    /*background: #C96;
+    border-left: 1px solid #EB8;
+    border-right: 1px solid #B74;
+    border-top: 1px solid #EB8;
+    font-weight: normal;
+    padding: 4px 3px;
+    text-align: left*/
+
+    /*padding:5px 5px; border:1px solid #FFF;*/
+}
+
+
+.thead.fixedHeader tr, .thead.fixedHeader tr td {background:#036280 !important;color:#FFF !important; font-weight: bold;}
+
+/* make the A elements pretty. makes for nice clickable headers                */
+/*thead.fixedHeader a, thead.fixedHeader a:link, thead.fixedHeader a:visited {
+    color: #FFF;
+    display: block;
+    text-decoration: none;
+    width: 100%
+}*/
+
+/* make the A elements pretty. makes for nice clickable headers                */
+/* WARNING: swapping the background on hover may cause problems in WinIE 6.x   */
+/*thead.fixedHeader a:hover {
+    color: #FFF;
+    display: block;
+    text-decoration: underline;
+    width: 100%
+}*/
+
+
+/* define the table content to be scrollable                                              */
+/* set TBODY element to have block level attributes. All other non-IE browsers            */
+/* this enables overflow to work on TBODY element. All other non-IE, non-Mozilla browsers */
+/* induced side effect is that child TDs no longer accept width: auto                     */
+html>body tbody.scrollContent {
+    display: block;
+    height: 200px;
+    overflow: auto;
+    width: 100%;
+}
+
+.tbody.scrollContent tbody tr td {padding:0px 5px; border:1px solid #FFF;}
+.tbody.scrollContent tbody tr:nth-child(2n) { background:#EAEDF4;}
+.tbody.scrollContent tbody tr:nth-child(2n+1) { background:#F1F2F7;}
+
+/* make TD elements pretty. Provide alternating classes for striping the table */
+/* http://www.alistapart.com/articles/zebratables/                             */
+/*tbody.scrollContent td, tbody.scrollContent tr.normalRow td {
+    background: #FFF;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px;
+    background:#EAEDF4;
+}
+
+tbody.scrollContent tr.alternateRow td {
+    background: #EEE;
+    border-bottom: none;
+    border-left: none;
+    border-right: 1px solid #CCC;
+    border-top: 1px solid #DDD;
+    padding: 2px 3px 3px 4px;
+    background:#F1F2F7;
+}*/
+
+
+/* **********************Modification starts here********************** */
+
+/* Modification done by Velu on 21-08-2014*/
+/* *************************************Modification starts here*******************************  */
+
+.LateInLegend {
+    background-color: #ff33cc;
+    padding: 5px 15px 5px 15px;
+}
+
+.EarlyOutLegend {
+    background-color: #A6CAF0;
+    padding: 5px 15px 5px 15px;
+}
+
+.IrregularityLegend {
+    background-color: #ffff00;
+    padding: 5px 15px 5px 15px;
+}
+
+
+.AbsenceLegend {
+    background-color: #ff0000;
+    padding: 5px 60px 5px 60px;
+}
+
+.HolidayLegend {
+    background-color: #9966FF;
+    padding: 5px 60px 5px 60px;
+}
+
+.AnnualLeaveLegend {
+    background-color: #00ff00;
+    padding: 5px 60px 5px 60px;
+}
+
+.OtherLeaveLegend {
+    background-color: #BCB800;
+    padding: 5px 60px 5px 60px;
+}
+
+.NotRequiredLeaveLegend {
+    background-color: #ffff00;
+    padding: 5px 60px 5px 60px;
+}
+
+
+
+.whitecriteria-box {
+    background-color: #FFF;
+    padding: 5px 2%;
+    width: 96%;
+    height: 300px;
+}
+
+
+/* *************************************Modification starts here*******************************  */
+
+/* Modification done by Velu on 21-08-2014*/
+/* *************************************Modification starts here*******************************  */
+/*kahkin 17/3/2021 [UHCMS-18]*/
+/*.spn-previous {display:inline-block; padding:5px 25px; background:url('/hrmsnet/images/previous_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; text-decoration : underline; cursor: pointer;}
+.spn-today {display:inline-block; padding:5px 25px; background:url('/hrmsnet/images/today_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; cursor: pointer;}
+.spn-next {display:inline-block; padding:5px 25px; background:url('/hrmsnet/images/next_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; font-style : italic; cursor: pointer;}*/
+.spn-previous {display:inline-block; padding:5px 25px; background:url('../images/previous_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; text-decoration : underline; cursor: pointer;}
+.spn-today {display:inline-block; padding:5px 25px; background:url('../images/today_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; cursor: pointer;}
+.spn-next {display:inline-block; padding:5px 25px; background:url('../images/next_small.png') 0px 5px no-repeat;color:#0B6884; font-size:12px; font-style : italic; cursor: pointer;}
+.spn-timeindicator {display:inline-block; padding:10px 20px 0px; color:#0B6884; font-size:12px; font-weight:bold; }
+/* *************************************Modification starts here*******************************  */
+
+
+/* Modification done by Velu for organization chart module on 26-01-2015*/
+/* *************************************Modification starts here*******************************  */
+.superior-chartnode
+{
+    width: 300px;
+    min-height :80px;
+    max-height: inherit;
+    /*height: 80px;*/
+    border: dotted;
+    border-width: 1px;
+    border-color: red;
+    background-color: #e5e5e5;
+
+    margin-left : auto;
+    margin-right : auto;
+}
+
+.formlabellink {font-size:12px; color:#1E0FCC; vertical-align:bottom; display: block; padding-right: 2px;}     /* Modified padding-top: 10px from 6px */
+
+.label-value a:link, .formlabellink a:link
+{
+    text-decoration: none;
+}
+
+.label-value a:hover, .formlabellink a:hover
+{
+    text-decoration: underline;
+}
+
+.displayimagenonenode
+{
+    border-radius: 50%; 
+    width: 55px; 
+    height: 55px; 
+    display: none;
+}
+
+.displayimageblocknode
+{
+    border-radius: 50%; 
+    width: 55px; 
+    height: 55px; 
+    display: block; 
+    cursor: pointer;
+}
+
+.displaytopbottom
+{
+    transform: translate(-24px,25px) rotate(90deg);
+    transform-origin: center center 0px;
+    float: right;
+    width: 126px;
+    text-align : left;
+    
+}
+
+.displaynodenone
+{
+    width: 80px; 
+    height: 200px; 
+}
+
+.displayEmptyNode
+{
+    width: 80px; 
+    height: 200px;
+    display: none;
+}
+
+.displaynodeblock
+{
+    width: 80px; 
+    height: 200px; 
+    border: dotted; 
+    border-width: 1px;     
+}
+
+.gray61back
+{
+    background-color:#9c9c9c; 
+}
+
+
+.liteblueback
+{
+    background-color:#d3e4f5;
+}
+
+.activesuperior
+{
+    width: 300px; 
+    min-height: 200px;
+    max-height: inherit;
+    /*height: 200px;*/ 
+    border: dotted; 
+    border-width: 1px; 
+    margin-right: auto; 
+    margin-left: auto; 
+    background-color: #ffffff;
+}
+
+.charttablestyle
+{
+    height : 98%;
+    width : 100%;
+}
+
+
+.printactivenode
+{
+    font-size:12px; 
+    color:#036280 !important;
+}
+
+.printinactivenode
+{
+       font-size:12px; 
+}
+
+/* *************************************Modification ends here*******************************  */
+
+table.formlabel-radio {
+    margin-left: -15px !important;
+}
+
+table.formlabel-radio label {
+    display: block;
+    float: left;
+    margin-top: 3px;
+}
+
+table.formlabel-radio input[type='radio'] {
+    display: block;
+    float: left;
+}
+
+table.formlabel-radio td {
+    padding-left: 20px;
+}
+
+table.formlabel-radio td:first-child {
+    padding-left: 0px !important;
+}
+
+
+.form-sub-title-tp {
+    padding: 0px 0px 5px 5px;
+    background-color: #59B9D1;
+    color: #FFF;
+    font-size: 14px;
+    font-weight: bold;
+    width:100%;
+}
